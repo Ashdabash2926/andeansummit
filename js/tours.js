@@ -119,19 +119,15 @@
     const wa = WHATSAPP_BASE + encodeURIComponent(`Hola Andean Summit, me interesa el ${tour.nameEN}.`);
     document.getElementById('tmCta').href = wa;
 
-    modal.hidden = false;
-    requestAnimationFrame(() => modal.classList.add('is-open'));
-    modal.setAttribute('aria-hidden', 'false');
+    modal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
   }
 
   function closeModal() {
     const modal = document.getElementById('tourModal');
-    if (!modal || modal.hidden) return;
+    if (!modal || !modal.classList.contains('is-open')) return;
     modal.classList.remove('is-open');
-    modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    setTimeout(() => { modal.hidden = true; }, 200);
   }
 
   function wireModal() {
