@@ -35,6 +35,14 @@
       "status": "open",
       "priceUSD": 540,
       "notes": "Acclimatisation hike included"
+    },
+    {
+      "status": "open",
+      "spotsLeft": 0,
+      "tourSlug": "olleros-chavin",
+      "startDate": "2026-07-01",
+      "endDate": "2026-07-08",
+      "priceUSD": 460
     }
   ]
 }
