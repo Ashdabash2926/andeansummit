@@ -43,37 +43,13 @@ collections:
             fields:
               - label: "Tour"
                 name: "tourSlug"
-                widget: "select"
-                hint: "Which expedition is departing?"
-                options:
-                  - { label: "Laguna 69 (1 day · trek)",                value: "laguna-69" }
-                  - { label: "Santa Cruz Trek (4 days · trek)",         value: "santa-cruz" }
-                  - { label: "Huayhuash Circuit (10 days · trek)",      value: "huayhuash" }
-                  - { label: "Cedros–Alpamayo (12 days · trek)",        value: "cedros-alpamayo" }
-                  - { label: "Laguna Churup (1 day · trek)",            value: "laguna-churup" }
-                  - { label: "Olleros–Chavín (3 days · trek)",          value: "olleros-chavin" }
-                  - { label: "Quilcayhuanca–Cojup (3 days · trek)",     value: "quilcayhuanca-cojup" }
-                  - { label: "Nevado Urus (3 days · climb)",            value: "urus" }
-                  - { label: "Nevado Ishinca (4 days · climb)",         value: "ishinca" }
-                  - { label: "Nevado Pisco (4 days · climb)",           value: "pisco" }
-                  - { label: "Nevado Vallunaraju (3 days · climb)",     value: "vallunaraju" }
-                  - { label: "Nevado Tocllaraju (5 days · climb)",      value: "tocllaraju" }
-                  - { label: "Nevado Chopicalqui (6 days · climb)",     value: "chopicalqui" }
-                  - { label: "Nevado Huascarán (6 days · climb)",       value: "huascaran" }
-                  - { label: "Nevado Alpamayo (9 days · climb)",        value: "alpamayo" }
-                  - { label: "Nevado Quitaraju (9 days · climb)",       value: "quitaraju" }
-                  - { label: "Rock climbing day",                        value: "rock-climbing" }
-                  - { label: "Ice climbing day",                         value: "ice-climbing" }
-                  - { label: "Mountain biking",                          value: "mtb" }
-                  - { label: "Canyoning",                                value: "canyoning" }
-                  - { label: "Puenting",                                 value: "puenting" }
-                  - { label: "Horseback riding",                         value: "horseback" }
-                  - { label: "Llanganuco Lakes (tour)",                  value: "llanganuco" }
-                  - { label: "Pastoruri Glacier (tour)",                 value: "pastoruri" }
-                  - { label: "Chavín de Huántar (tour)",                 value: "chavin" }
-                  - { label: "Huaraz city tour",                         value: "city-tour" }
-                  - { label: "Rock climbing course (4 days)",            value: "course-rock" }
-                  - { label: "Ice climbing course (5 days)",             value: "course-ice" }
+                widget: "relation"
+                collection: "tours"
+                file: "tours"
+                search_fields: ["tours.*.nameEN", "tours.*.slug", "tours.*.category"]
+                value_field: "tours.*.slug"
+                display_fields: ["tours.*.nameEN"]
+                hint: "Type to search (e.g. 'sa' → Santa Cruz). Pulls live from the Tours collection."
               - { label: "Start date", name: "startDate", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", picker_utc: false }
               - { label: "End date",   name: "endDate",   widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", picker_utc: false, required: false, hint: "Leave blank for single-day departures" }
               - label: "Status"
