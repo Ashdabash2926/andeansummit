@@ -82,6 +82,9 @@ window.TRANSLATIONS = {
     "tours.card.difficulty": "Difficulty",
     "tours.card.inquire": "Enquire on WhatsApp",
     "tours.card.details": "View details",
+    "tours.modal.nextDates": "Next available dates",
+    "tours.modal.noDates": "No fixed departures listed — message us on WhatsApp for custom dates.",
+    "tours.modal.spots": "spots",
 
     "about.hero.kicker": "About",
     "about.hero.title": "Twelve years\nin the mountains.",
@@ -227,6 +230,9 @@ window.TRANSLATIONS = {
     "tours.card.difficulty": "Dificultad",
     "tours.card.inquire": "Consultar por WhatsApp",
     "tours.card.details": "Ver detalles",
+    "tours.modal.nextDates": "Próximas fechas disponibles",
+    "tours.modal.noDates": "Sin salidas fijas — escríbenos por WhatsApp para fechas a medida.",
+    "tours.modal.spots": "plazas",
 
     "about.hero.kicker": "Nosotros",
     "about.hero.title": "Doce años\nen la montaña.",
@@ -372,6 +378,9 @@ window.TRANSLATIONS = {
     "tours.card.difficulty": "Difficulté",
     "tours.card.inquire": "Demander sur WhatsApp",
     "tours.card.details": "Voir détails",
+    "tours.modal.nextDates": "Prochaines dates disponibles",
+    "tours.modal.noDates": "Aucun départ fixe — écrivez-nous sur WhatsApp pour des dates sur mesure.",
+    "tours.modal.spots": "places",
 
     "about.hero.kicker": "À propos",
     "about.hero.title": "Douze ans\nen montagne.",
@@ -517,6 +526,9 @@ window.TRANSLATIONS = {
     "tours.card.difficulty": "Schwierigkeit",
     "tours.card.inquire": "Anfrage per WhatsApp",
     "tours.card.details": "Details ansehen",
+    "tours.modal.nextDates": "Nächste verfügbare Termine",
+    "tours.modal.noDates": "Keine festen Abreisen — schreib uns auf WhatsApp für individuelle Termine.",
+    "tours.modal.spots": "Plätze",
 
     "about.hero.kicker": "Über uns",
     "about.hero.title": "Zwölf Jahre\nin den Bergen.",

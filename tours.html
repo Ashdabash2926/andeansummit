@@ -59,6 +59,24 @@
 
   <div id="footer-mount"></div>
 
+  <div class="tour-modal" id="tourModal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="tmTitle">
+    <div class="tour-modal-backdrop" data-close></div>
+    <div class="tour-modal-card" role="document">
+      <button class="tour-modal-close" type="button" data-close aria-label="Close">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="4" y1="4" x2="18" y2="18"/><line x1="18" y1="4" x2="4" y2="18"/></svg>
+      </button>
+      <div class="tour-modal-media"><img id="tmImg" src="" alt=""></div>
+      <div class="tour-modal-body">
+        <span class="kicker" id="tmCat"></span>
+        <h2 class="font-display" id="tmTitle"></h2>
+        <p class="tour-modal-sum" id="tmSum"></p>
+        <h3 class="tour-modal-h" data-i18n="tours.modal.nextDates">Next available dates</h3>
+        <ul class="tour-modal-deps" id="tmDeps"></ul>
+        <a class="btn btn-dark" id="tmCta" href="#" target="_blank" rel="noopener" data-i18n="tours.card.inquire">Enquire on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
   <script src="js/translations.js"></script>
   <script src="js/components.js"></script>
   <script src="js/main.js"></script>
