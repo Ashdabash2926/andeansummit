@@ -97,11 +97,56 @@
     els.forEach(el => io.observe(el));
   }
 
+  function formatNumber(n, format) {
+    if (format === 'thousands') {
+      // 6768 → "6 768" (thin space, matches site convention used in nav coords / address)
+      return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    }
+    return Math.round(n).toString();
+  }
+
+  function wireCounters() {
+    const targets = document.querySelectorAll('[data-count]');
+    if (!targets.length) return;
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) {
+      targets.forEach(el => {
+        el.textContent = formatNumber(parseFloat(el.getAttribute('data-count')), el.getAttribute('data-format'));
+      });
+      return;
+    }
+    const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+    const animate = (el) => {
+      const target = parseFloat(el.getAttribute('data-count'));
+      const format = el.getAttribute('data-format');
+      const duration = 1600;
+      const start = performance.now();
+      const tick = (now) => {
+        const t = Math.min(1, (now - start) / duration);
+        const v = easeOutCubic(t) * target;
+        el.textContent = formatNumber(v, format);
+        if (t < 1) requestAnimationFrame(tick);
+        else el.textContent = formatNumber(target, format);
+      };
+      requestAnimationFrame(tick);
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          animate(e.target);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    targets.forEach(el => io.observe(el));
+  }
+
   function init() {
     applyLang(detectLang());
     wireLangButtons();
     wireMobileMenu();
     wireNavScroll();
+    wireCounters();
     wireReveal();
   }
 
