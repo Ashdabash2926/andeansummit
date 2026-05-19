@@ -58,24 +58,35 @@ export default {
         provider: 'github'
       });
 
-      // Post the credentials back to the Decap admin window and close ourselves
+      // Decap handshake:
+      //   1. popup posts 'authorizing:github' to opener
+      //   2. opener echoes 'authorizing:github' back
+      //   3. popup posts 'authorization:github:success:{json}' and closes
+      const escapedPayload = payload.replace(/</g, '\\u003c').replace(/'/g, "\\'");
       const html = `<!DOCTYPE html>
 <html><head><title>Authorising…</title></head>
 <body style="font-family: ui-sans-serif, system-ui, sans-serif; padding: 2rem; color: #1B4332;">
   <p>Authorising… you can close this window if it doesn't close automatically.</p>
   <script>
     (function () {
-      function postAuth(msg) {
-        // Decap listens for messages like "authorization:github:success:{...}"
-        window.opener && window.opener.postMessage('authorization:github:success:${payload.replace(/'/g, "\\'")}', '*');
+      var payload = 'authorization:github:success:${escapedPayload}';
+      function sendReady() {
+        if (window.opener) window.opener.postMessage('authorizing:github', '*');
       }
       window.addEventListener('message', function (e) {
-        // Decap pings the popup; once we hear from it, post the token
-        if (e.data === 'authorizing:github') postAuth();
+        if (e.data === 'authorizing:github' && window.opener) {
+          window.opener.postMessage(payload, e.origin);
+          setTimeout(function () { window.close(); }, 500);
+        }
       }, false);
-      // Also fire immediately in case the opener is already listening
-      postAuth();
-      setTimeout(function () { window.close(); }, 1500);
+      // Announce we're ready; retry a few times in case the opener is still booting
+      sendReady();
+      var tries = 0;
+      var iv = setInterval(function () {
+        tries++;
+        if (tries > 10) { clearInterval(iv); return; }
+        sendReady();
+      }, 300);
     })();
   </script>
 </body></html>`;

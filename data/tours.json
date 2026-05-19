@@ -1,282 +1,284 @@
-[
-  {
-    "slug": "laguna-69",
-    "category": "trekking",
-    "days": 1,
-    "altitudeM": 4600,
-    "difficulty": "moderate",
-    "image": "images/tours/laguna-69.webp",
-    "nameEN": "Laguna 69",
-    "summaryEN": "A day hike from Cebollapampa to one of the most striking alpine lakes in the Cordillera Blanca, with views of Chacraraju, Huascarán and Pisco."
-  },
-  {
-    "slug": "santa-cruz",
-    "category": "trekking",
-    "days": 4,
-    "altitudeM": 4750,
-    "difficulty": "moderate",
-    "image": "images/tours/santa-cruz.webp",
-    "nameEN": "Santa Cruz Trek",
-    "summaryEN": "Four days through three of the most spectacular gorges of Huascarán National Park, crossing Punta Unión at 4 750 m."
-  },
-  {
-    "slug": "huayhuash",
-    "category": "trekking",
-    "days": 10,
-    "altitudeM": 5000,
-    "difficulty": "hard",
-    "image": "images/tours/huayhuash.webp",
-    "nameEN": "Huayhuash Circuit",
-    "summaryEN": "The full 165-km circuit around the Cordillera Huayhuash — often called the second most beautiful trek in the world."
-  },
-  {
-    "slug": "cedros-alpamayo",
-    "category": "trekking",
-    "days": 12,
-    "altitudeM": 4860,
-    "difficulty": "hard",
-    "image": "images/tours/cedros-alpamayo.webp",
-    "nameEN": "Cedros–Alpamayo Circuit",
-    "summaryEN": "Twelve days circumnavigating the Alpamayo massif, voted the most beautiful mountain in the world."
-  },
-  {
-    "slug": "laguna-churup",
-    "category": "trekking",
-    "days": 1,
-    "altitudeM": 4450,
-    "difficulty": "moderate",
-    "image": "images/gallery/g1.webp",
-    "nameEN": "Laguna Churup",
-    "summaryEN": "A steep day hike above Pitec to a turquoise lake beneath Nevado Churup — a popular acclimatisation outing."
-  },
-  {
-    "slug": "olleros-chavin",
-    "category": "trekking",
-    "days": 3,
-    "altitudeM": 4700,
-    "difficulty": "moderate",
-    "image": "images/gallery/g2.webp",
-    "nameEN": "Olleros–Chavín Trek",
-    "summaryEN": "Three days on an old Inca route ending at the UNESCO-listed Chavín de Huántar archaeological site."
-  },
-  {
-    "slug": "quilcayhuanca-cojup",
-    "category": "trekking",
-    "days": 3,
-    "altitudeM": 5000,
-    "difficulty": "moderate",
-    "image": "images/gallery/g3.webp",
-    "nameEN": "Quilcayhuanca–Cojup",
-    "summaryEN": "A quiet three-day circuit linking two glaciated valleys above Huaraz — far from the busier routes."
-  },
-  {
-    "slug": "urus",
-    "category": "climbing",
-    "days": 3,
-    "altitudeM": 5495,
-    "difficulty": "moderate",
-    "image": "images/hero/home-hero.webp",
-    "nameEN": "Nevado Urus",
-    "summaryEN": "A 5 495 m introduction to high-altitude snow climbing — the standard first peak in the Ishinca valley."
-  },
-  {
-    "slug": "ishinca",
-    "category": "climbing",
-    "days": 4,
-    "altitudeM": 5530,
-    "difficulty": "moderate",
-    "image": "images/hero/tours-hero.webp",
-    "nameEN": "Nevado Ishinca",
-    "summaryEN": "A non-technical 5 530 m peak from the Ishinca valley base camp, ideal as a second climb after Urus."
-  },
-  {
-    "slug": "pisco",
-    "category": "climbing",
-    "days": 4,
-    "altitudeM": 5752,
-    "difficulty": "moderate",
-    "image": "images/hero/about-hero.webp",
-    "nameEN": "Nevado Pisco",
-    "summaryEN": "One of the most popular climbs in the range — outstanding views of Huandoy, Chacraraju and Huascarán."
-  },
-  {
-    "slug": "vallunaraju",
-    "category": "climbing",
-    "days": 3,
-    "altitudeM": 5686,
-    "difficulty": "moderate",
-    "image": "images/hero/history-hero.webp",
-    "nameEN": "Nevado Vallunaraju",
-    "summaryEN": "A 5 686 m glaciated peak right above Huaraz — short approach, technical snow climbing."
-  },
-  {
-    "slug": "tocllaraju",
-    "category": "climbing",
-    "days": 5,
-    "altitudeM": 6034,
-    "difficulty": "hard",
-    "image": "images/hero/stay-hero.webp",
-    "nameEN": "Nevado Tocllaraju",
-    "summaryEN": "A graceful 6 034 m peak in the Ishinca valley — the most accessible 6 000er in the Cordillera Blanca."
-  },
-  {
-    "slug": "chopicalqui",
-    "category": "climbing",
-    "days": 6,
-    "altitudeM": 6354,
-    "difficulty": "hard",
-    "image": "images/hero/contact-hero.webp",
-    "nameEN": "Nevado Chopicalqui",
-    "summaryEN": "A 6 354 m peak adjacent to Huascarán, with steep snow and ice on the upper sections."
-  },
-  {
-    "slug": "huascaran",
-    "category": "climbing",
-    "days": 6,
-    "altitudeM": 6768,
-    "difficulty": "hard",
-    "image": "images/tours/huayhuash.webp",
-    "nameEN": "Nevado Huascarán",
-    "summaryEN": "The highest tropical mountain in the world at 6 768 m. A serious six-day expedition for fit, experienced climbers."
-  },
-  {
-    "slug": "alpamayo",
-    "category": "climbing",
-    "days": 9,
-    "altitudeM": 5947,
-    "difficulty": "hard",
-    "image": "images/tours/cedros-alpamayo.webp",
-    "nameEN": "Nevado Alpamayo",
-    "summaryEN": "The famed fluted face of Alpamayo (5 947 m) — technical ice climbing on the most beautiful mountain in the world."
-  },
-  {
-    "slug": "quitaraju",
-    "category": "climbing",
-    "days": 9,
-    "altitudeM": 6036,
-    "difficulty": "hard",
-    "image": "images/tours/santa-cruz.webp",
-    "nameEN": "Nevado Quitaraju",
-    "summaryEN": "Often paired with Alpamayo — a 6 036 m technical climb sharing the same Cedros approach."
-  },
-  {
-    "slug": "rock-climbing",
-    "category": "adventure",
-    "days": 1,
-    "altitudeM": 3400,
-    "difficulty": "all",
-    "image": "images/gallery/g1.webp",
-    "nameEN": "Rock climbing",
-    "summaryEN": "Sport and trad routes at Los Olivos, Hatun Machay and other crags around Huaraz, from 5a to 7b."
-  },
-  {
-    "slug": "ice-climbing",
-    "category": "adventure",
-    "days": 1,
-    "altitudeM": 5000,
-    "difficulty": "hard",
-    "image": "images/gallery/g2.webp",
-    "nameEN": "Ice climbing",
-    "summaryEN": "A day of waterfall and glacial ice climbing on Mateo or Pastoruri with all technical gear provided."
-  },
-  {
-    "slug": "mtb",
-    "category": "adventure",
-    "days": 1,
-    "altitudeM": 4200,
-    "difficulty": "moderate",
-    "image": "images/gallery/g3.webp",
-    "nameEN": "Mountain biking",
-    "summaryEN": "Half- and full-day singletrack descents from high passes back down into Huaraz."
-  },
-  {
-    "slug": "canyoning",
-    "category": "adventure",
-    "days": 1,
-    "altitudeM": 3000,
-    "difficulty": "moderate",
-    "image": "images/hero/contact-hero.webp",
-    "nameEN": "Canyoning",
-    "summaryEN": "Rappelling down waterfalls and slot canyons in the foothills below Huaraz."
-  },
-  {
-    "slug": "puenting",
-    "category": "adventure",
-    "days": 1,
-    "altitudeM": 3100,
-    "difficulty": "easy",
-    "image": "images/hero/history-hero.webp",
-    "nameEN": "Puenting",
-    "summaryEN": "A swinging bridge jump into a river gorge near Huaraz — a quick adrenaline outing."
-  },
-  {
-    "slug": "horseback",
-    "category": "adventure",
-    "days": 1,
-    "altitudeM": 3800,
-    "difficulty": "easy",
-    "image": "images/hero/stay-hero.webp",
-    "nameEN": "Horseback riding",
-    "summaryEN": "Guided horseback excursions through villages and viewpoints on the Cordillera Negra side of the valley."
-  },
-  {
-    "slug": "llanganuco",
-    "category": "tour",
-    "days": 1,
-    "altitudeM": 3850,
-    "difficulty": "easy",
-    "image": "images/hero/tours-hero.webp",
-    "nameEN": "Llanganuco Lakes",
-    "summaryEN": "A full-day bus tour to the twin glacial lakes of Chinancocha and Orconcocha at the foot of Huascarán."
-  },
-  {
-    "slug": "pastoruri",
-    "category": "tour",
-    "days": 1,
-    "altitudeM": 5240,
-    "difficulty": "moderate",
-    "image": "images/hero/home-hero.webp",
-    "nameEN": "Pastoruri Glacier",
-    "summaryEN": "A day trip to the Pastoruri glacier at 5 240 m, with a stop to see the giant Puya Raimondi."
-  },
-  {
-    "slug": "chavin",
-    "category": "tour",
-    "days": 1,
-    "altitudeM": 3180,
-    "difficulty": "easy",
-    "image": "images/hero/about-hero.webp",
-    "nameEN": "Chavín de Huántar",
-    "summaryEN": "A full-day guided visit to the UNESCO-listed Chavín de Huántar archaeological complex."
-  },
-  {
-    "slug": "city-tour",
-    "category": "tour",
-    "days": 1,
-    "altitudeM": 3100,
-    "difficulty": "easy",
-    "image": "images/hero/history-hero.webp",
-    "nameEN": "Huaraz city tour",
-    "summaryEN": "Half-day city tour: museum, viewpoint at Mirador Rataquena, monument and the thermal baths of Monterrey."
-  },
-  {
-    "slug": "course-rock",
-    "category": "course",
-    "days": 4,
-    "altitudeM": 4000,
-    "difficulty": "all",
-    "image": "images/gallery/g2.webp",
-    "nameEN": "Rock climbing course",
-    "summaryEN": "A four-day rock-climbing course covering knots, anchors, lead climbing and multi-pitch movement."
-  },
-  {
-    "slug": "course-ice",
-    "category": "course",
-    "days": 5,
-    "altitudeM": 5200,
-    "difficulty": "moderate",
-    "image": "images/gallery/g3.webp",
-    "nameEN": "Ice climbing course",
-    "summaryEN": "Five days learning crampon and ice-axe technique, glacier travel and crevasse rescue."
-  }
-]
+{
+  "tours": [
+    {
+      "slug": "laguna-69",
+      "category": "trekking",
+      "days": 1,
+      "altitudeM": 4600,
+      "difficulty": "moderate",
+      "image": "images/tours/laguna-69.webp",
+      "nameEN": "Laguna 69",
+      "summaryEN": "A day hike from Cebollapampa to one of the most striking alpine lakes in the Cordillera Blanca, with views of Chacraraju, Huascarán and Pisco."
+    },
+    {
+      "slug": "santa-cruz",
+      "category": "trekking",
+      "days": 4,
+      "altitudeM": 4750,
+      "difficulty": "moderate",
+      "image": "images/tours/santa-cruz.webp",
+      "nameEN": "Santa Cruz Trek",
+      "summaryEN": "Four days through three of the most spectacular gorges of Huascarán National Park, crossing Punta Unión at 4 750 m."
+    },
+    {
+      "slug": "huayhuash",
+      "category": "trekking",
+      "days": 10,
+      "altitudeM": 5000,
+      "difficulty": "hard",
+      "image": "images/tours/huayhuash.webp",
+      "nameEN": "Huayhuash Circuit",
+      "summaryEN": "The full 165-km circuit around the Cordillera Huayhuash — often called the second most beautiful trek in the world."
+    },
+    {
+      "slug": "cedros-alpamayo",
+      "category": "trekking",
+      "days": 12,
+      "altitudeM": 4860,
+      "difficulty": "hard",
+      "image": "images/tours/cedros-alpamayo.webp",
+      "nameEN": "Cedros–Alpamayo Circuit",
+      "summaryEN": "Twelve days circumnavigating the Alpamayo massif, voted the most beautiful mountain in the world."
+    },
+    {
+      "slug": "laguna-churup",
+      "category": "trekking",
+      "days": 1,
+      "altitudeM": 4450,
+      "difficulty": "moderate",
+      "image": "images/gallery/g1.webp",
+      "nameEN": "Laguna Churup",
+      "summaryEN": "A steep day hike above Pitec to a turquoise lake beneath Nevado Churup — a popular acclimatisation outing."
+    },
+    {
+      "slug": "olleros-chavin",
+      "category": "trekking",
+      "days": 3,
+      "altitudeM": 4700,
+      "difficulty": "moderate",
+      "image": "images/gallery/g2.webp",
+      "nameEN": "Olleros–Chavín Trek",
+      "summaryEN": "Three days on an old Inca route ending at the UNESCO-listed Chavín de Huántar archaeological site."
+    },
+    {
+      "slug": "quilcayhuanca-cojup",
+      "category": "trekking",
+      "days": 3,
+      "altitudeM": 5000,
+      "difficulty": "moderate",
+      "image": "images/gallery/g3.webp",
+      "nameEN": "Quilcayhuanca–Cojup",
+      "summaryEN": "A quiet three-day circuit linking two glaciated valleys above Huaraz — far from the busier routes."
+    },
+    {
+      "slug": "urus",
+      "category": "climbing",
+      "days": 3,
+      "altitudeM": 5495,
+      "difficulty": "moderate",
+      "image": "images/hero/home-hero.webp",
+      "nameEN": "Nevado Urus",
+      "summaryEN": "A 5 495 m introduction to high-altitude snow climbing — the standard first peak in the Ishinca valley."
+    },
+    {
+      "slug": "ishinca",
+      "category": "climbing",
+      "days": 4,
+      "altitudeM": 5530,
+      "difficulty": "moderate",
+      "image": "images/hero/tours-hero.webp",
+      "nameEN": "Nevado Ishinca",
+      "summaryEN": "A non-technical 5 530 m peak from the Ishinca valley base camp, ideal as a second climb after Urus."
+    },
+    {
+      "slug": "pisco",
+      "category": "climbing",
+      "days": 4,
+      "altitudeM": 5752,
+      "difficulty": "moderate",
+      "image": "images/hero/about-hero.webp",
+      "nameEN": "Nevado Pisco",
+      "summaryEN": "One of the most popular climbs in the range — outstanding views of Huandoy, Chacraraju and Huascarán."
+    },
+    {
+      "slug": "vallunaraju",
+      "category": "climbing",
+      "days": 3,
+      "altitudeM": 5686,
+      "difficulty": "moderate",
+      "image": "images/hero/history-hero.webp",
+      "nameEN": "Nevado Vallunaraju",
+      "summaryEN": "A 5 686 m glaciated peak right above Huaraz — short approach, technical snow climbing."
+    },
+    {
+      "slug": "tocllaraju",
+      "category": "climbing",
+      "days": 5,
+      "altitudeM": 6034,
+      "difficulty": "hard",
+      "image": "images/hero/stay-hero.webp",
+      "nameEN": "Nevado Tocllaraju",
+      "summaryEN": "A graceful 6 034 m peak in the Ishinca valley — the most accessible 6 000er in the Cordillera Blanca."
+    },
+    {
+      "slug": "chopicalqui",
+      "category": "climbing",
+      "days": 6,
+      "altitudeM": 6354,
+      "difficulty": "hard",
+      "image": "images/hero/contact-hero.webp",
+      "nameEN": "Nevado Chopicalqui",
+      "summaryEN": "A 6 354 m peak adjacent to Huascarán, with steep snow and ice on the upper sections."
+    },
+    {
+      "slug": "huascaran",
+      "category": "climbing",
+      "days": 6,
+      "altitudeM": 6768,
+      "difficulty": "hard",
+      "image": "images/tours/huayhuash.webp",
+      "nameEN": "Nevado Huascarán",
+      "summaryEN": "The highest tropical mountain in the world at 6 768 m. A serious six-day expedition for fit, experienced climbers."
+    },
+    {
+      "slug": "alpamayo",
+      "category": "climbing",
+      "days": 9,
+      "altitudeM": 5947,
+      "difficulty": "hard",
+      "image": "images/tours/cedros-alpamayo.webp",
+      "nameEN": "Nevado Alpamayo",
+      "summaryEN": "The famed fluted face of Alpamayo (5 947 m) — technical ice climbing on the most beautiful mountain in the world."
+    },
+    {
+      "slug": "quitaraju",
+      "category": "climbing",
+      "days": 9,
+      "altitudeM": 6036,
+      "difficulty": "hard",
+      "image": "images/tours/santa-cruz.webp",
+      "nameEN": "Nevado Quitaraju",
+      "summaryEN": "Often paired with Alpamayo — a 6 036 m technical climb sharing the same Cedros approach."
+    },
+    {
+      "slug": "rock-climbing",
+      "category": "adventure",
+      "days": 1,
+      "altitudeM": 3400,
+      "difficulty": "all",
+      "image": "images/gallery/g1.webp",
+      "nameEN": "Rock climbing",
+      "summaryEN": "Sport and trad routes at Los Olivos, Hatun Machay and other crags around Huaraz, from 5a to 7b."
+    },
+    {
+      "slug": "ice-climbing",
+      "category": "adventure",
+      "days": 1,
+      "altitudeM": 5000,
+      "difficulty": "hard",
+      "image": "images/gallery/g2.webp",
+      "nameEN": "Ice climbing",
+      "summaryEN": "A day of waterfall and glacial ice climbing on Mateo or Pastoruri with all technical gear provided."
+    },
+    {
+      "slug": "mtb",
+      "category": "adventure",
+      "days": 1,
+      "altitudeM": 4200,
+      "difficulty": "moderate",
+      "image": "images/gallery/g3.webp",
+      "nameEN": "Mountain biking",
+      "summaryEN": "Half- and full-day singletrack descents from high passes back down into Huaraz."
+    },
+    {
+      "slug": "canyoning",
+      "category": "adventure",
+      "days": 1,
+      "altitudeM": 3000,
+      "difficulty": "moderate",
+      "image": "images/hero/contact-hero.webp",
+      "nameEN": "Canyoning",
+      "summaryEN": "Rappelling down waterfalls and slot canyons in the foothills below Huaraz."
+    },
+    {
+      "slug": "puenting",
+      "category": "adventure",
+      "days": 1,
+      "altitudeM": 3100,
+      "difficulty": "easy",
+      "image": "images/hero/history-hero.webp",
+      "nameEN": "Puenting",
+      "summaryEN": "A swinging bridge jump into a river gorge near Huaraz — a quick adrenaline outing."
+    },
+    {
+      "slug": "horseback",
+      "category": "adventure",
+      "days": 1,
+      "altitudeM": 3800,
+      "difficulty": "easy",
+      "image": "images/hero/stay-hero.webp",
+      "nameEN": "Horseback riding",
+      "summaryEN": "Guided horseback excursions through villages and viewpoints on the Cordillera Negra side of the valley."
+    },
+    {
+      "slug": "llanganuco",
+      "category": "tour",
+      "days": 1,
+      "altitudeM": 3850,
+      "difficulty": "easy",
+      "image": "images/hero/tours-hero.webp",
+      "nameEN": "Llanganuco Lakes",
+      "summaryEN": "A full-day bus tour to the twin glacial lakes of Chinancocha and Orconcocha at the foot of Huascarán."
+    },
+    {
+      "slug": "pastoruri",
+      "category": "tour",
+      "days": 1,
+      "altitudeM": 5240,
+      "difficulty": "moderate",
+      "image": "images/hero/home-hero.webp",
+      "nameEN": "Pastoruri Glacier",
+      "summaryEN": "A day trip to the Pastoruri glacier at 5 240 m, with a stop to see the giant Puya Raimondi."
+    },
+    {
+      "slug": "chavin",
+      "category": "tour",
+      "days": 1,
+      "altitudeM": 3180,
+      "difficulty": "easy",
+      "image": "images/hero/about-hero.webp",
+      "nameEN": "Chavín de Huántar",
+      "summaryEN": "A full-day guided visit to the UNESCO-listed Chavín de Huántar archaeological complex."
+    },
+    {
+      "slug": "city-tour",
+      "category": "tour",
+      "days": 1,
+      "altitudeM": 3100,
+      "difficulty": "easy",
+      "image": "images/hero/history-hero.webp",
+      "nameEN": "Huaraz city tour",
+      "summaryEN": "Half-day city tour: museum, viewpoint at Mirador Rataquena, monument and the thermal baths of Monterrey."
+    },
+    {
+      "slug": "course-rock",
+      "category": "course",
+      "days": 4,
+      "altitudeM": 4000,
+      "difficulty": "all",
+      "image": "images/gallery/g2.webp",
+      "nameEN": "Rock climbing course",
+      "summaryEN": "A four-day rock-climbing course covering knots, anchors, lead climbing and multi-pitch movement."
+    },
+    {
+      "slug": "course-ice",
+      "category": "course",
+      "days": 5,
+      "altitudeM": 5200,
+      "difficulty": "moderate",
+      "image": "images/gallery/g3.webp",
+      "nameEN": "Ice climbing course",
+      "summaryEN": "Five days learning crampon and ice-axe technique, glacier travel and crevasse rescue."
+    }
+  ]
+}

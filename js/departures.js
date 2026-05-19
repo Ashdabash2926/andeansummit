@@ -50,18 +50,21 @@
       .sort((a, b) => a._date - b._date)[0];
   }
 
-  async function loadJSON(path) {
+  async function loadJSON(path, key) {
     const res = await fetch(path, { cache: 'no-store' });
     if (!res.ok) throw new Error(path + ' → HTTP ' + res.status);
-    return res.json();
+    const data = await res.json();
+    if (Array.isArray(data)) return data;
+    if (data && Array.isArray(data[key])) return data[key];
+    return [];
   }
 
   async function init() {
     let departures, tours;
     try {
       [departures, tours] = await Promise.all([
-        loadJSON('data/departures.json'),
-        loadJSON('data/tours.json')
+        loadJSON('data/departures.json', 'departures'),
+        loadJSON('data/tours.json', 'tours')
       ]);
     } catch (e) {
       console.warn('Departures: data load failed', e);

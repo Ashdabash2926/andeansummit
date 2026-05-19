@@ -91,7 +91,8 @@
     try {
       const res = await fetch('data/tours.json', { cache: 'no-store' });
       if (!res.ok) throw new Error('HTTP ' + res.status);
-      window.TOURS = await res.json();
+      const data = await res.json();
+      window.TOURS = Array.isArray(data) ? data : (data && Array.isArray(data.tours) ? data.tours : []);
     } catch (e) {
       console.error('Failed to load tours.json', e);
       window.TOURS = [];

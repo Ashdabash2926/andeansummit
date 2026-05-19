@@ -16,7 +16,8 @@
     try {
       const res = await fetch('data/gallery.json', { cache: 'no-store' });
       if (!res.ok) throw new Error('HTTP ' + res.status);
-      gallery = await res.json();
+      const data = await res.json();
+      gallery = Array.isArray(data) ? data : (data && Array.isArray(data.gallery) ? data.gallery : []);
     } catch (e) {
       // Fall back to whatever is already in the HTML (the existing hardcoded set)
       console.warn('Gallery: data load failed, leaving static items', e);

@@ -1,38 +1,40 @@
-[
-  {
-    "tourSlug": "santa-cruz",
-    "startDate": "2026-06-06",
-    "endDate": "2026-06-09",
-    "spotsLeft": 2,
-    "status": "few-spots",
-    "priceUSD": 480,
-    "notes": "Small group · English-speaking guide confirmed"
-  },
-  {
-    "tourSlug": "huayhuash",
-    "startDate": "2026-06-20",
-    "endDate": "2026-06-29",
-    "spotsLeft": 4,
-    "status": "open",
-    "priceUSD": 1450,
-    "notes": "Full 10-day circuit · cooks + porters included"
-  },
-  {
-    "tourSlug": "laguna-69",
-    "startDate": "2026-05-30",
-    "endDate": "2026-05-30",
-    "spotsLeft": 6,
-    "status": "open",
-    "priceUSD": 65,
-    "notes": "Daily departures all season"
-  },
-  {
-    "tourSlug": "pisco",
-    "startDate": "2026-07-04",
-    "endDate": "2026-07-07",
-    "spotsLeft": 3,
-    "status": "open",
-    "priceUSD": 540,
-    "notes": "Acclimatisation hike included"
-  }
-]
+{
+  "departures": [
+    {
+      "tourSlug": "santa-cruz",
+      "startDate": "2026-06-06",
+      "endDate": "2026-06-09",
+      "spotsLeft": 2,
+      "status": "few-spots",
+      "priceUSD": 480,
+      "notes": "Small group · English-speaking guide confirmed"
+    },
+    {
+      "tourSlug": "huayhuash",
+      "startDate": "2026-06-20",
+      "endDate": "2026-06-29",
+      "spotsLeft": 4,
+      "status": "open",
+      "priceUSD": 1450,
+      "notes": "Full 10-day circuit · cooks + porters included"
+    },
+    {
+      "tourSlug": "laguna-69",
+      "startDate": "2026-05-30",
+      "endDate": "2026-05-30",
+      "spotsLeft": 6,
+      "status": "open",
+      "priceUSD": 65,
+      "notes": "Daily departures all season"
+    },
+    {
+      "tourSlug": "pisco",
+      "startDate": "2026-07-04",
+      "endDate": "2026-07-07",
+      "spotsLeft": 3,
+      "status": "open",
+      "priceUSD": 540,
+      "notes": "Acclimatisation hike included"
+    }
+  ]
+}
