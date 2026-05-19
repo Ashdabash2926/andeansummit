@@ -43,6 +43,12 @@
       "startDate": "2026-07-01",
       "endDate": "2026-07-08",
       "priceUSD": 460
+    },
+    {
+      "status": "open",
+      "spotsLeft": 4,
+      "tourSlug": "TEST",
+      "startDate": "2026-05-21"
     }
   ]
 }
