@@ -7,7 +7,7 @@ backend:
   branch: main
   # base_url MUST be set to the deployed Cloudflare Worker OAuth proxy
   # (see workers/andean-cms-auth/README.md). Update once deployed:
-  base_url: https://andean-cms-auth.ashdabash2926.workers.dev
+  base_url: https://andean-cms-auth.ashscms.workers.dev
   auth_endpoint: auth
 
 # Where uploaded images land in the repo
