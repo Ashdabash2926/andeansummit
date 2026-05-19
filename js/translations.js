@@ -26,6 +26,11 @@ window.TRANSLATIONS = {
     "home.hero.cta": "Plan your expedition",
     "home.hero.scroll": "Scroll",
 
+    "home.stats.years": "Years guiding",
+    "home.stats.routes": "Routes on offer",
+    "home.stats.summit": "Highest summit · Huascarán",
+    "home.stats.langs": "Languages spoken",
+
     "home.what.kicker": "What we do",
     "home.what.title": "Five ways into\nthe mountains.",
     "home.what.trek.title": "Trekking",
@@ -164,6 +169,11 @@ window.TRANSLATIONS = {
     "home.hero.sub": "Trekking, escalada y aventura en los Andes peruanos, con guías locales. Doce años desde Huaraz.",
     "home.hero.cta": "Planifica tu expedición",
     "home.hero.scroll": "Desliza",
+
+    "home.stats.years": "Años de experiencia",
+    "home.stats.routes": "Rutas disponibles",
+    "home.stats.summit": "Cumbre más alta · Huascarán",
+    "home.stats.langs": "Idiomas hablados",
 
     "home.what.kicker": "Qué hacemos",
     "home.what.title": "Cinco formas de entrar\na la montaña.",
@@ -304,6 +314,11 @@ window.TRANSLATIONS = {
     "home.hero.cta": "Préparez votre expédition",
     "home.hero.scroll": "Défiler",
 
+    "home.stats.years": "Années d'expérience",
+    "home.stats.routes": "Itinéraires proposés",
+    "home.stats.summit": "Plus haut sommet · Huascarán",
+    "home.stats.langs": "Langues parlées",
+
     "home.what.kicker": "Ce que nous faisons",
     "home.what.title": "Cinq façons d'entrer\ndans la montagne.",
     "home.what.trek.title": "Trekking",
@@ -442,6 +457,11 @@ window.TRANSLATIONS = {
     "home.hero.sub": "Trekking, Bergsteigen und Abenteuer in den peruanischen Anden — mit lokalen Guides. Zwölf Jahre aus Huaraz.",
     "home.hero.cta": "Plane deine Expedition",
     "home.hero.scroll": "Scrollen",
+
+    "home.stats.years": "Jahre Erfahrung",
+    "home.stats.routes": "Verfügbare Routen",
+    "home.stats.summit": "Höchster Gipfel · Huascarán",
+    "home.stats.langs": "Gesprochene Sprachen",
 
     "home.what.kicker": "Was wir machen",
     "home.what.title": "Fünf Wege\nin die Berge.",
