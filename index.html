@@ -30,6 +30,10 @@
   <header class="hero" data-hero>
     <div class="hero-bg" style="background-image:url('images/hero/home-hero.webp');" role="img" aria-label="Cordillera Blanca peaks"></div>
 
+    <!-- Cinematic letterbox bars that retract on load -->
+    <div class="hero-bar hero-bar--top" aria-hidden="true"></div>
+    <div class="hero-bar hero-bar--bot" aria-hidden="true"></div>
+
     <!-- Topographic ridgeline drawn over hero -->
     <svg class="hero-topo" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
       <path d="M0 160 L120 130 L220 150 L320 95 L420 120 L520 60 L600 88 L700 30 L790 70 L880 50 L980 110 L1090 80 L1200 140 L1320 110 L1440 150"
@@ -37,23 +41,48 @@
       <circle cx="700" cy="30" r="3" fill="currentColor"/>
     </svg>
 
+    <!-- TODAY badge — top-left, gives a "live operation" feel -->
+    <div class="hero-today">
+      <span class="today-dot" aria-hidden="true"></span>
+      <span class="today-meta"><span id="todayDate">Today</span> · Huaraz · <span data-i18n="home.hero.season">Dry season active</span></span>
+    </div>
+
     <!-- Magazine label, top right -->
     <div class="hero-issue">
       <span class="issue-num">N°&nbsp;001</span>
       <span class="issue-meta">Cordillera Blanca · Huayhuash · Áncash</span>
     </div>
 
+    <!-- Vertical altitude scale, right side desktop -->
+    <div class="hero-scale" aria-hidden="true">
+      <div class="scale-track">
+        <div class="scale-fill"></div>
+        <div class="scale-dot"></div>
+      </div>
+      <div class="scale-marks">
+        <span style="--p:0">3 100<sup>m</sup></span>
+        <span style="--p:.30">4 000<sup>m</sup></span>
+        <span style="--p:.54">5 000<sup>m</sup></span>
+        <span style="--p:.78">6 000<sup>m</sup></span>
+        <span style="--p:1">6 768<sup>m</sup></span>
+      </div>
+      <span class="scale-label">Elevation profile · Huaraz → Huascarán</span>
+    </div>
+
     <div class="hero-inner">
       <span class="kicker" data-i18n="home.hero.kicker">Cordillera Blanca · Cordillera Huayhuash</span>
-      <h1 class="display display-xl font-display" data-i18n="home.hero.title">Your summit<br>starts here.</h1>
+      <h1 class="display display-xl font-display" data-word-reveal data-i18n="home.hero.title">Your <em>summit</em><br>starts <em>here.</em></h1>
       <p class="lede" data-i18n="home.hero.sub">Locally guided trekking, climbing and adventure expeditions in the Peruvian Andes. Twelve years out of Huaraz.</p>
       <div class="hero-actions">
-        <a href="tours.html" class="btn btn-primary" data-i18n="home.hero.cta">Plan your expedition</a>
+        <a href="tours.html" class="btn btn-primary" data-i18n="home.hero.cta">
+          <span data-i18n="home.hero.cta">Plan your expedition</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
         <a href="#what" class="btn btn-ghost" data-i18n="home.hero.scroll">Scroll</a>
       </div>
     </div>
 
-    <!-- Coordinate / altitude readout, bottom-left corner -->
+    <!-- Coordinate readout, bottom-left -->
     <div class="hero-readout">
       <div class="ro-group">
         <span class="ro-label">Lat</span>
@@ -63,9 +92,9 @@
         <span class="ro-label">Long</span>
         <span class="ro-val">77° 31′ 41″ W</span>
       </div>
-      <div class="ro-group ro-group--alt">
-        <span class="ro-label">Base ↗ Summit</span>
-        <span class="ro-val ro-val--scale">3 100m <span class="ro-tick"></span> 6 768m</span>
+      <div class="ro-group">
+        <span class="ro-label">Base camp</span>
+        <span class="ro-val">3 100 m · Huaraz</span>
       </div>
     </div>
 

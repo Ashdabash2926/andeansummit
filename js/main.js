@@ -141,8 +141,76 @@
     targets.forEach(el => io.observe(el));
   }
 
+  function splitHeroTitle(el) {
+    if (!el || el.dataset.wordSplit === '1') return;
+    // Walks children — text becomes word spans, <br> stays, <em> wraps inner words but keeps emphasis class
+    const wrap = (word, idx, klass) => {
+      const m = document.createElement('span');
+      m.className = 'w' + (klass ? ' ' + klass : '');
+      m.style.setProperty('--i', idx);
+      const inner = document.createElement('span');
+      inner.className = 'wi';
+      inner.textContent = word;
+      m.appendChild(inner);
+      return m;
+    };
+    let i = 0;
+    const processNode = (node, klass) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const frag = document.createDocumentFragment();
+        node.textContent.split(/\s+/).filter(Boolean).forEach((w, j, arr) => {
+          frag.appendChild(wrap(w, i++, klass));
+          if (j < arr.length - 1) frag.appendChild(document.createTextNode(' '));
+        });
+        return frag;
+      }
+      if (node.tagName === 'BR') return node.cloneNode();
+      if (node.tagName === 'EM') {
+        const frag = document.createDocumentFragment();
+        Array.from(node.childNodes).forEach(child => {
+          const out = processNode(child, 'w--em');
+          if (out) frag.appendChild(out);
+        });
+        return frag;
+      }
+      return null;
+    };
+    const next = document.createDocumentFragment();
+    Array.from(el.childNodes).forEach(child => {
+      const out = processNode(child);
+      if (out) next.appendChild(out);
+    });
+    el.innerHTML = '';
+    el.appendChild(next);
+    el.dataset.wordSplit = '1';
+    // Trigger animation on next frame
+    requestAnimationFrame(() => el.classList.add('is-revealed'));
+  }
+
+  function wireHeroReveal() {
+    document.querySelectorAll('[data-word-reveal]').forEach(splitHeroTitle);
+    document.addEventListener('lang:changed', () => {
+      document.querySelectorAll('[data-word-reveal]').forEach(el => {
+        el.dataset.wordSplit = '';
+        el.classList.remove('is-revealed');
+        splitHeroTitle(el);
+      });
+      wireTodayDate();
+    });
+  }
+
+  function wireTodayDate() {
+    const el = document.getElementById('todayDate');
+    if (!el) return;
+    const lang = (localStorage.getItem('lang') || 'en');
+    const fmt = new Intl.DateTimeFormat(lang, { day: '2-digit', month: 'short' });
+    el.textContent = fmt.format(new Date()).toUpperCase();
+  }
+
   function init() {
     applyLang(detectLang());
+    wireHeroReveal();
+    wireTodayDate();
     wireLangButtons();
     wireMobileMenu();
     wireNavScroll();

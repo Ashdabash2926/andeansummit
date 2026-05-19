@@ -21,10 +21,11 @@ window.TRANSLATIONS = {
     "footer.rights": "© Andean Summit. All rights reserved.",
 
     "home.hero.kicker": "Cordillera Blanca · Cordillera Huayhuash",
-    "home.hero.title": "Your summit\nstarts here.",
+    "home.hero.title": "Your <em>summit</em>\nstarts <em>here.</em>",
     "home.hero.sub": "Locally guided trekking, climbing and adventure expeditions in the Peruvian Andes. Twelve years out of Huaraz.",
     "home.hero.cta": "Plan your expedition",
     "home.hero.scroll": "Scroll",
+    "home.hero.season": "Dry season active",
 
     "home.stats.years": "Years guiding",
     "home.stats.routes": "Routes on offer",
@@ -165,10 +166,11 @@ window.TRANSLATIONS = {
     "footer.rights": "© Andean Summit. Todos los derechos reservados.",
 
     "home.hero.kicker": "Cordillera Blanca · Cordillera Huayhuash",
-    "home.hero.title": "Tu cumbre\nempieza aquí.",
+    "home.hero.title": "Tu <em>cumbre</em>\nempieza <em>aquí.</em>",
     "home.hero.sub": "Trekking, escalada y aventura en los Andes peruanos, con guías locales. Doce años desde Huaraz.",
     "home.hero.cta": "Planifica tu expedición",
     "home.hero.scroll": "Desliza",
+    "home.hero.season": "Temporada seca activa",
 
     "home.stats.years": "Años de experiencia",
     "home.stats.routes": "Rutas disponibles",
@@ -309,10 +311,11 @@ window.TRANSLATIONS = {
     "footer.rights": "© Andean Summit. Tous droits réservés.",
 
     "home.hero.kicker": "Cordillère Blanche · Cordillère Huayhuash",
-    "home.hero.title": "Votre sommet\ncommence ici.",
+    "home.hero.title": "Votre <em>sommet</em>\ncommence <em>ici.</em>",
     "home.hero.sub": "Trekking, alpinisme et aventure dans les Andes péruviennes avec des guides locaux. Douze ans depuis Huaraz.",
     "home.hero.cta": "Préparez votre expédition",
     "home.hero.scroll": "Défiler",
+    "home.hero.season": "Saison sèche en cours",
 
     "home.stats.years": "Années d'expérience",
     "home.stats.routes": "Itinéraires proposés",
@@ -453,10 +456,11 @@ window.TRANSLATIONS = {
     "footer.rights": "© Andean Summit. Alle Rechte vorbehalten.",
 
     "home.hero.kicker": "Cordillera Blanca · Cordillera Huayhuash",
-    "home.hero.title": "Dein Gipfel\nbeginnt hier.",
+    "home.hero.title": "Dein <em>Gipfel</em>\nbeginnt <em>hier.</em>",
     "home.hero.sub": "Trekking, Bergsteigen und Abenteuer in den peruanischen Anden — mit lokalen Guides. Zwölf Jahre aus Huaraz.",
     "home.hero.cta": "Plane deine Expedition",
     "home.hero.scroll": "Scrollen",
+    "home.hero.season": "Trockenzeit aktiv",
 
     "home.stats.years": "Jahre Erfahrung",
     "home.stats.routes": "Verfügbare Routen",

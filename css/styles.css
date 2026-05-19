@@ -729,6 +729,176 @@ a { color: inherit; }
 /* ---------- HERO additions ---------- */
 .home-themed .hero { min-height: 100svh; }
 
+/* Brighter, more cinematic gradient — tightened to a darker top-bar + bottom-only fade */
+.home-themed .hero::after {
+  background:
+    linear-gradient(180deg, rgba(15,20,17,.55) 0%, rgba(15,20,17,.05) 18%, rgba(15,20,17,.05) 55%, rgba(15,20,17,.78) 100%) !important;
+}
+
+/* Cinematic letterbox bars — retract on load */
+.hero-bar {
+  position: absolute; left: 0; right: 0;
+  background: var(--ink);
+  z-index: 3;
+  height: 0;
+  pointer-events: none;
+  animation: barRetract .9s cubic-bezier(.6,0,.2,1) .2s forwards;
+}
+.hero-bar--top { top: 0; height: 18vh; transform-origin: top; }
+.hero-bar--bot { bottom: 0; height: 12vh; transform-origin: bottom; }
+@keyframes barRetract {
+  from { transform: scaleY(1); }
+  to   { transform: scaleY(0); }
+}
+.hero-bar--top { animation-name: barTopRetract; }
+.hero-bar--bot { animation-name: barBotRetract; }
+@keyframes barTopRetract { from { transform: scaleY(1); } to { transform: scaleY(0); } }
+@keyframes barBotRetract { from { transform: scaleY(1); } to { transform: scaleY(0); } }
+
+/* TODAY badge — top-left, "live operation" feel */
+.hero-today {
+  position: absolute;
+  top: 6.5rem; left: var(--pad);
+  z-index: 2;
+  display: inline-flex; align-items: center; gap: .55rem;
+  padding: .55rem .85rem;
+  background: rgba(15,20,17,.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(251,247,239,.15);
+  border-radius: 999px;
+  color: rgba(251,247,239,.9);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .62rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(-6px);
+  animation: todayFade .8s ease 1.2s forwards;
+}
+@media (min-width: 768px)  { .hero-today { top: 7rem;   left: var(--pad-md); } }
+@media (min-width: 1024px) { .hero-today { top: 7.5rem; left: var(--pad-lg); font-size: .68rem; } }
+.today-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #5BC78F;
+  box-shadow: 0 0 0 0 rgba(91,199,143,.6);
+  animation: todayPulse 1.8s ease-out infinite;
+  flex-shrink: 0;
+}
+@keyframes todayPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(91,199,143,.5); }
+  70%  { box-shadow: 0 0 0 10px rgba(91,199,143,0); }
+  100% { box-shadow: 0 0 0 0 rgba(91,199,143,0); }
+}
+@keyframes todayFade { to { opacity: 1; transform: translateY(0); } }
+
+/* ---------- Vertical altitude scale (right side desktop) ---------- */
+.hero-scale {
+  position: absolute;
+  right: var(--pad-lg);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: none;
+  align-items: stretch;
+  gap: 1rem;
+  color: rgba(251,247,239,.78);
+  height: 60vh;
+  max-height: 540px;
+}
+@media (min-width: 1280px) { .hero-scale { display: flex; } }
+.scale-track {
+  position: relative;
+  width: 1px;
+  background: rgba(251,247,239,.18);
+  flex-shrink: 0;
+}
+.scale-fill {
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 0;
+  background: linear-gradient(180deg, var(--alpine) 0%, var(--cream) 100%);
+  animation: scaleClimb 3.4s cubic-bezier(.4,.1,.2,1) 1.6s forwards;
+}
+.scale-dot {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--alpine);
+  box-shadow: 0 0 0 4px rgba(232,111,44,.25), 0 0 14px rgba(232,111,44,.7);
+  transform: translate(-50%, -50%) scale(0);
+  animation: scaleDot 3.4s cubic-bezier(.4,.1,.2,1) 1.6s forwards;
+}
+@keyframes scaleClimb { to { height: 100%; } }
+@keyframes scaleDot {
+  0%   { transform: translate(-50%, -50%) scale(0); top: 100%; }
+  10%  { transform: translate(-50%, -50%) scale(1); }
+  100% { transform: translate(-50%, -50%) scale(1); top: 0; }
+}
+.scale-marks {
+  position: relative;
+  width: 4.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .7rem;
+  letter-spacing: .1em;
+}
+.scale-marks span {
+  position: absolute;
+  left: 0;
+  top: calc((1 - var(--p)) * 100%);
+  transform: translateY(-50%);
+  white-space: nowrap;
+  opacity: 0;
+  animation: markFade .5s ease forwards;
+}
+.scale-marks span sup { font-size: .7em; opacity: .7; }
+.scale-marks span:nth-child(1) { animation-delay: 1.6s; }
+.scale-marks span:nth-child(2) { animation-delay: 2.3s; }
+.scale-marks span:nth-child(3) { animation-delay: 3.0s; }
+.scale-marks span:nth-child(4) { animation-delay: 3.7s; }
+.scale-marks span:nth-child(5) { animation-delay: 4.4s; color: var(--alpine); font-weight: 500; }
+@keyframes markFade { to { opacity: 1; } }
+
+.scale-label {
+  position: absolute;
+  right: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .58rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: rgba(251,247,239,.4);
+  white-space: nowrap;
+}
+
+/* ---------- Headline word-mask reveal ---------- */
+[data-word-reveal] .w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: 1;
+  padding-bottom: .04em; /* prevent descender clipping */
+}
+[data-word-reveal] .wi {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 1.1s cubic-bezier(.2,.7,.2,1);
+}
+[data-word-reveal].is-revealed .w .wi {
+  transform: translateY(0);
+  transition-delay: calc(var(--i, 0) * .12s + .35s);
+}
+[data-word-reveal] .w.w--em .wi {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--alpine);
+  font-variation-settings: 'opsz' 144, 'SOFT' 80;
+}
+.section--dark [data-word-reveal] .w.w--em .wi { color: var(--alpine); }
+
 /* Topographic ridgeline drawn over the hero */
 .hero-topo {
   position: absolute;
@@ -1161,6 +1331,11 @@ a { color: inherit; }
     background: none; -webkit-text-fill-color: currentColor; color: inherit;
   }
   .stat::after { transition: none; width: 36px; }
+  .hero-bar, .scale-fill, .scale-dot, .scale-marks span, .hero-today { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .hero-bar { display: none; }
+  .scale-fill { height: 100% !important; }
+  .scale-dot { top: 0 !important; transform: translate(-50%, -50%) scale(1) !important; }
+  [data-word-reveal] .wi { transform: none !important; transition: none !important; }
 }
 
 /* ---------- Reduced motion overrides ---------- */
