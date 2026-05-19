@@ -279,6 +279,16 @@
       "image": "images/gallery/g3.webp",
       "nameEN": "Ice climbing course",
       "summaryEN": "Five days learning crampon and ice-axe technique, glacier travel and crevasse rescue."
+    },
+    {
+      "slug": "TEST",
+      "nameEN": "TEST",
+      "summaryEN": "TEST",
+      "days": 10,
+      "altitudeM": 5000,
+      "difficulty": "moderate",
+      "image": "https://www.ministryoftesting.com/software-testing-glossary/test",
+      "category": "trekking"
     }
   ]
 }
