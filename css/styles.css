@@ -969,26 +969,29 @@ a { color: inherit; }
 }
 .cat-row:hover .cat-row-arrow { color: var(--alpine); transform: translate(4px,-4px); }
 
-/* Hover-following image preview (desktop only) */
-.cat-preview {
-  position: absolute;
-  pointer-events: none;
-  width: 360px;
-  height: 460px;
-  top: 0; left: 0;
-  z-index: 5;
+/* Category rows — staggered slide-in (mobile + desktop) */
+.cat-list li[data-reveal] {
   opacity: 0;
-  transform: translate(-50%,-50%) scale(.96);
-  transition: opacity .4s var(--t-base), transform .4s var(--t-base);
-  display: none;
+  transform: translateY(28px);
+  transition: opacity .85s cubic-bezier(.2,.7,.2,1), transform .85s cubic-bezier(.2,.7,.2,1);
 }
-@media (min-width: 1024px) { .cat-preview { display: block; } }
-.cat-preview.is-on { opacity: 1; transform: translate(-50%,-50%) scale(1); }
-.cat-preview-inner {
-  width: 100%; height: 100%;
-  background: var(--glacier) center/cover no-repeat;
-  box-shadow: var(--shadow-2);
-  border: 8px solid var(--cream);
+.cat-list li[data-reveal].is-in { opacity: 1; transform: translateY(0); }
+.cat-list li[data-reveal]:nth-child(1).is-in { transition-delay: 0s; }
+.cat-list li[data-reveal]:nth-child(2).is-in { transition-delay: .08s; }
+.cat-list li[data-reveal]:nth-child(3).is-in { transition-delay: .16s; }
+.cat-list li[data-reveal]:nth-child(4).is-in { transition-delay: .24s; }
+.cat-list li[data-reveal]:nth-child(5).is-in { transition-delay: .32s; }
+
+/* Subtle continuous arrow oscillation on tap/hover (works for both) */
+@keyframes arrowDrift {
+  0%, 100% { transform: translate(0,0); }
+  50%      { transform: translate(3px,-3px); }
+}
+.cat-row:hover .cat-row-arrow,
+.cat-row:active .cat-row-arrow,
+.cat-row:focus-visible .cat-row-arrow {
+  animation: arrowDrift 1.4s ease-in-out infinite;
+  color: var(--alpine);
 }
 
 /* ---------- WHY: topographic mesh overlay ---------- */
@@ -1057,6 +1060,108 @@ a { color: inherit; }
 /* ---------- Section header polish on home ---------- */
 .home-themed .section-header { align-items: end; }
 .home-themed .section-header .display { font-variation-settings: 'opsz' 144, 'SOFT' 50; }
+
+/* ---------- Mobile-friendly motion (no hover required) ---------- */
+
+/* Hero peak dot — softly pulses after the ridge finishes drawing */
+.hero-topo circle {
+  animation: fadePeak .8s ease 2.8s forwards, peakPulse 3.2s ease-in-out 3.6s infinite;
+  transform-origin: 700px 30px;
+}
+@keyframes peakPulse {
+  0%, 100% { transform: scale(1);   filter: drop-shadow(0 0 0 transparent); }
+  50%      { transform: scale(1.6); filter: drop-shadow(0 0 6px var(--alpine)); }
+}
+
+/* Subtle ken-burns drift on the hero background image */
+.home-themed .hero-bg {
+  animation: heroDrift 18s ease-in-out infinite alternate;
+}
+@keyframes heroDrift {
+  from { transform: scale(1.06) translate(0, 0); }
+  to   { transform: scale(1.10) translate(-1.2%, -1.2%); }
+}
+
+/* Stats — accent underline grows in beneath each number */
+.stat { position: relative; padding-bottom: .6rem; }
+.stat::after {
+  content: '';
+  position: absolute;
+  left: 50%; bottom: -.2rem;
+  width: 0; height: 2px;
+  background: var(--alpine);
+  transform: translateX(-50%);
+  transition: width 1.6s cubic-bezier(.2,.7,.2,1) .3s;
+}
+.stats-grid.is-in .stat::after { width: 36px; }
+
+/* Featured tour cards — staggered reveal */
+.section--glacier .tour-card[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .85s cubic-bezier(.2,.7,.2,1), transform .85s cubic-bezier(.2,.7,.2,1);
+}
+.section--glacier .tour-card[data-reveal].is-in { opacity: 1; transform: translateY(0); }
+.section--glacier .tour-grid .tour-card:nth-child(1).is-in { transition-delay: 0s; }
+.section--glacier .tour-grid .tour-card:nth-child(2).is-in { transition-delay: .12s; }
+.section--glacier .tour-grid .tour-card:nth-child(3).is-in { transition-delay: .24s; }
+
+/* Why cards — staggered, with a left-edge line growing in */
+.why-card[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);
+  position: relative;
+}
+.why-card[data-reveal].is-in { opacity: 1; transform: translateY(0); }
+.section--dark .why-grid .why-card:nth-child(1).is-in { transition-delay: 0s; }
+.section--dark .why-grid .why-card:nth-child(2).is-in { transition-delay: .12s; }
+.section--dark .why-grid .why-card:nth-child(3).is-in { transition-delay: .24s; }
+
+/* Title wipe — section h2s reveal with a soft horizontal mask */
+.home-themed .section-header[data-reveal] .display {
+  background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 50%, rgba(15,20,17,.08) 50.01%, rgba(15,20,17,.08) 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+  transition: background-position 1.2s cubic-bezier(.2,.7,.2,1) .15s;
+}
+.home-themed .section-header[data-reveal].is-in .display { background-position: 0 0; }
+.section--dark .section-header[data-reveal] .display {
+  background: linear-gradient(90deg, var(--cream) 0%, var(--cream) 50%, rgba(251,247,239,.18) 50.01%, rgba(251,247,239,.18) 100%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Fig-tag tiny dash slides out on reveal */
+.section-header[data-reveal] .fig-tag {
+  display: inline-block;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity .7s ease .1s, transform .7s cubic-bezier(.2,.7,.2,1) .1s;
+}
+.section-header[data-reveal].is-in .fig-tag { opacity: 1; transform: translateX(0); }
+
+/* Tour card image — slow zoom in on scroll into view (mobile-friendly) */
+.tour-card[data-reveal] .tour-media img {
+  transform: scale(1.08);
+  transition: transform 2s cubic-bezier(.2,.7,.2,1);
+}
+.tour-card[data-reveal].is-in .tour-media img { transform: scale(1); }
+
+/* Reduced-motion: kill everything new above */
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg, .hero-topo circle,
+  .home-themed .section-header[data-reveal] .display { animation: none !important; }
+  .home-themed .section-header[data-reveal] .display,
+  .section--dark .section-header[data-reveal] .display {
+    background: none; -webkit-text-fill-color: currentColor; color: inherit;
+  }
+  .stat::after { transition: none; width: 36px; }
+}
 
 /* ---------- Reduced motion overrides ---------- */
 @media (prefers-reduced-motion: reduce) {

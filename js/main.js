@@ -141,42 +141,12 @@
     targets.forEach(el => io.observe(el));
   }
 
-  function wireCatPreview() {
-    const list = document.querySelector('.cat-list');
-    if (!list) return;
-    const preview = list.querySelector('.cat-preview');
-    const inner = preview && preview.querySelector('.cat-preview-inner');
-    if (!preview || !inner) return;
-    if (!window.matchMedia('(min-width: 1024px) and (hover: hover)').matches) return;
-    const rows = list.querySelectorAll('.cat-row');
-    let activeRow = null;
-    list.addEventListener('mousemove', (e) => {
-      if (!activeRow) return;
-      const rect = list.getBoundingClientRect();
-      preview.style.left = (e.clientX - rect.left) + 'px';
-      preview.style.top  = (e.clientY - rect.top) + 'px';
-    });
-    rows.forEach(row => {
-      row.addEventListener('mouseenter', () => {
-        activeRow = row;
-        const img = row.getAttribute('data-img');
-        if (img) inner.style.backgroundImage = `url("${img}")`;
-        preview.classList.add('is-on');
-      });
-      row.addEventListener('mouseleave', () => {
-        activeRow = null;
-        preview.classList.remove('is-on');
-      });
-    });
-  }
-
   function init() {
     applyLang(detectLang());
     wireLangButtons();
     wireMobileMenu();
     wireNavScroll();
     wireCounters();
-    wireCatPreview();
     wireReveal();
   }
 
