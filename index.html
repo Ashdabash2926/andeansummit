@@ -19,13 +19,30 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M3 33 L13 14 L19 22 L26 9 L37 33 Z' fill='none' stroke='%23E86F2C' stroke-width='2'/%3E%3C/svg%3E">
 </head>
-<body data-page="home">
+<body data-page="home" class="home-themed">
+
+  <!-- Page-wide grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
 
   <div id="nav-mount"></div>
 
   <!-- ============ HERO ============ -->
   <header class="hero" data-hero>
     <div class="hero-bg" style="background-image:url('images/hero/home-hero.webp');" role="img" aria-label="Cordillera Blanca peaks"></div>
+
+    <!-- Topographic ridgeline drawn over hero -->
+    <svg class="hero-topo" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 160 L120 130 L220 150 L320 95 L420 120 L520 60 L600 88 L700 30 L790 70 L880 50 L980 110 L1090 80 L1200 140 L1320 110 L1440 150"
+            fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/>
+      <circle cx="700" cy="30" r="3" fill="currentColor"/>
+    </svg>
+
+    <!-- Magazine label, top right -->
+    <div class="hero-issue">
+      <span class="issue-num">N°&nbsp;001</span>
+      <span class="issue-meta">Cordillera Blanca · Huayhuash · Áncash</span>
+    </div>
+
     <div class="hero-inner">
       <span class="kicker" data-i18n="home.hero.kicker">Cordillera Blanca · Cordillera Huayhuash</span>
       <h1 class="display display-xl font-display" data-i18n="home.hero.title">Your summit<br>starts here.</h1>
@@ -35,6 +52,23 @@
         <a href="#what" class="btn btn-ghost" data-i18n="home.hero.scroll">Scroll</a>
       </div>
     </div>
+
+    <!-- Coordinate / altitude readout, bottom-left corner -->
+    <div class="hero-readout">
+      <div class="ro-group">
+        <span class="ro-label">Lat</span>
+        <span class="ro-val">09° 31′ 36″ S</span>
+      </div>
+      <div class="ro-group">
+        <span class="ro-label">Long</span>
+        <span class="ro-val">77° 31′ 41″ W</span>
+      </div>
+      <div class="ro-group ro-group--alt">
+        <span class="ro-label">Base ↗ Summit</span>
+        <span class="ro-val ro-val--scale">3 100m <span class="ro-tick"></span> 6 768m</span>
+      </div>
+    </div>
+
     <div class="hero-scroll" data-i18n="home.hero.scroll">Scroll</div>
   </header>
 
@@ -62,48 +96,76 @@
     </div>
   </section>
 
-  <!-- ============ FIVE CATEGORIES ============ -->
-  <section id="what" class="section">
+  <!-- ============ FIVE CATEGORIES (editorial vertical list) ============ -->
+  <section id="what" class="section section--topo">
     <div class="container">
       <div class="section-header" data-reveal>
         <div>
-          <span class="kicker" data-i18n="home.what.kicker">What we do</span>
+          <span class="kicker"><span class="fig-tag">Fig. 01</span><span data-i18n="home.what.kicker">What we do</span></span>
           <h2 class="display display-lg font-display" style="margin-top:1rem" data-i18n="home.what.title">Five ways into<br>the mountains.</h2>
         </div>
+        <p class="lede">From acclimatisation day hikes to fully supported expeditions on Peru's highest peaks — five disciplines, one operation.</p>
       </div>
 
-      <div class="cat-grid">
-        <a href="tours.html#trekking" class="cat-card" data-reveal>
-          <span class="cat-num">01</span>
-          <h3 class="cat-name" data-i18n="home.what.trek.title">Trekking</h3>
-          <p class="cat-body" data-i18n="home.what.trek.body">Day hikes to twelve-day circuits across Cordillera Blanca and Huayhuash.</p>
-          <svg class="cat-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
-        <a href="tours.html#climbing" class="cat-card" data-reveal>
-          <span class="cat-num">02</span>
-          <h3 class="cat-name" data-i18n="home.what.climb.title">Climbing</h3>
-          <p class="cat-body" data-i18n="home.what.climb.body">Nine peaks from Urus to Huascarán. Guided summit attempts on tropical 6 000ers.</p>
-          <svg class="cat-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
-        <a href="tours.html#adventure" class="cat-card" data-reveal>
-          <span class="cat-num">03</span>
-          <h3 class="cat-name" data-i18n="home.what.adventure.title">Adventure</h3>
-          <p class="cat-body" data-i18n="home.what.adventure.body">Rock and ice climbing, canyoning, mountain biking, puenting, horseback riding.</p>
-          <svg class="cat-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
-        <a href="tours.html#tour" class="cat-card" data-reveal>
-          <span class="cat-num">04</span>
-          <h3 class="cat-name" data-i18n="home.what.tours.title">Tours</h3>
-          <p class="cat-body" data-i18n="home.what.tours.body">Llanganuco, Pastoruri, Chavín de Huántar, city tours — the Andean classics.</p>
-          <svg class="cat-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
-        <a href="tours.html#course" class="cat-card" data-reveal>
-          <span class="cat-num">05</span>
-          <h3 class="cat-name" data-i18n="home.what.courses.title">Courses</h3>
-          <p class="cat-body" data-i18n="home.what.courses.body">Multi-day rock and ice climbing instruction with certified guides.</p>
-          <svg class="cat-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
-      </div>
+      <ol class="cat-list" data-reveal>
+        <li>
+          <a href="tours.html#trekking" class="cat-row" data-img="images/tours/santa-cruz.webp">
+            <span class="cat-row-num font-display">01</span>
+            <div class="cat-row-body">
+              <h3 class="cat-row-name" data-i18n="home.what.trek.title">Trekking</h3>
+              <p class="cat-row-sum" data-i18n="home.what.trek.body">Day hikes to twelve-day circuits across Cordillera Blanca and Huayhuash.</p>
+            </div>
+            <span class="cat-row-meta">7 ROUTES</span>
+            <span class="cat-row-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="tours.html#climbing" class="cat-row" data-img="images/tours/huayhuash.webp">
+            <span class="cat-row-num font-display">02</span>
+            <div class="cat-row-body">
+              <h3 class="cat-row-name" data-i18n="home.what.climb.title">Climbing</h3>
+              <p class="cat-row-sum" data-i18n="home.what.climb.body">Nine peaks from Urus to Huascarán. Guided summit attempts on tropical 6 000ers.</p>
+            </div>
+            <span class="cat-row-meta">9 PEAKS</span>
+            <span class="cat-row-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="tours.html#adventure" class="cat-row" data-img="images/gallery/g1.webp">
+            <span class="cat-row-num font-display">03</span>
+            <div class="cat-row-body">
+              <h3 class="cat-row-name" data-i18n="home.what.adventure.title">Adventure</h3>
+              <p class="cat-row-sum" data-i18n="home.what.adventure.body">Rock and ice climbing, canyoning, mountain biking, puenting, horseback riding.</p>
+            </div>
+            <span class="cat-row-meta">6 ACTIVITIES</span>
+            <span class="cat-row-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="tours.html#tour" class="cat-row" data-img="images/tours/laguna-69.webp">
+            <span class="cat-row-num font-display">04</span>
+            <div class="cat-row-body">
+              <h3 class="cat-row-name" data-i18n="home.what.tours.title">Tours</h3>
+              <p class="cat-row-sum" data-i18n="home.what.tours.body">Llanganuco, Pastoruri, Chavín de Huántar, city tours — the Andean classics.</p>
+            </div>
+            <span class="cat-row-meta">4 ITINERARIES</span>
+            <span class="cat-row-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a href="tours.html#course" class="cat-row" data-img="images/tours/cedros-alpamayo.webp">
+            <span class="cat-row-num font-display">05</span>
+            <div class="cat-row-body">
+              <h3 class="cat-row-name" data-i18n="home.what.courses.title">Courses</h3>
+              <p class="cat-row-sum" data-i18n="home.what.courses.body">Multi-day rock and ice climbing instruction with certified guides.</p>
+            </div>
+            <span class="cat-row-meta">2 COURSES</span>
+            <span class="cat-row-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <!-- Hover-follow image preview, controlled by JS -->
+        <div class="cat-preview" aria-hidden="true"><div class="cat-preview-inner"></div></div>
+      </ol>
     </div>
   </section>
 
@@ -112,7 +174,7 @@
     <div class="container">
       <div class="section-header" data-reveal>
         <div>
-          <span class="kicker" data-i18n="home.featured.kicker">Featured expeditions</span>
+          <span class="kicker"><span class="fig-tag">Fig. 02</span><span data-i18n="home.featured.kicker">Featured expeditions</span></span>
           <h2 class="display display-lg font-display" style="margin-top:1rem" data-i18n="home.featured.title">Three good places<br>to begin.</h2>
         </div>
         <p class="lede" data-i18n="home.featured.sub">Our most-booked routes — for first-time visitors and returning climbers alike.</p>
@@ -208,24 +270,36 @@
     </div>
   </section>
 
-  <!-- ============ GALLERY STRIP ============ -->
-  <section class="section">
+  <!-- ============ GALLERY MARQUEE ============ -->
+  <section class="section section--tight">
     <div class="container">
       <div class="section-header" data-reveal>
         <div>
-          <span class="kicker" data-i18n="home.gallery.kicker">Postcards</span>
+          <span class="kicker"><span class="fig-tag">Fig. 03</span><span data-i18n="home.gallery.kicker">Postcards</span></span>
           <h2 class="display display-lg font-display" style="margin-top:1rem" data-i18n="home.gallery.title">From the<br>Cordillera.</h2>
         </div>
         <a href="tours.html" class="btn btn-dark" style="align-self:end" data-i18n="home.gallery.cta">Open the gallery</a>
       </div>
+    </div>
 
-      <div class="gallery-strip" data-reveal>
-        <a href="tours.html"><img src="images/gallery/g1.webp" alt="Andes view" loading="lazy"></a>
-        <a href="tours.html"><img src="images/gallery/g2.webp" alt="Andes view" loading="lazy"></a>
-        <a href="tours.html"><img src="images/gallery/g3.webp" alt="Andes view" loading="lazy"></a>
-        <a href="tours.html"><img src="images/tours/laguna-69.webp" alt="Laguna 69" loading="lazy"></a>
-        <a href="tours.html"><img src="images/tours/santa-cruz.webp" alt="Santa Cruz" loading="lazy"></a>
-        <a href="tours.html"><img src="images/tours/huayhuash.webp" alt="Huayhuash" loading="lazy"></a>
+    <!-- Full-bleed marquee (escapes container, scrolls infinitely) -->
+    <div class="marquee" data-reveal aria-hidden="false">
+      <div class="marquee-track">
+        <a href="tours.html" class="marquee-item"><img src="images/gallery/g1.webp" alt="Cordillera Blanca panorama" loading="lazy"><span class="m-cap">01 · Cordillera Blanca</span></a>
+        <a href="tours.html" class="marquee-item"><img src="images/tours/laguna-69.webp" alt="Laguna 69" loading="lazy"><span class="m-cap">02 · Laguna 69 · 4 600m</span></a>
+        <a href="tours.html" class="marquee-item"><img src="images/gallery/g2.webp" alt="Andes ridge" loading="lazy"><span class="m-cap">03 · Punta Unión Pass</span></a>
+        <a href="tours.html" class="marquee-item"><img src="images/tours/santa-cruz.webp" alt="Santa Cruz" loading="lazy"><span class="m-cap">04 · Santa Cruz · 4 750m</span></a>
+        <a href="tours.html" class="marquee-item"><img src="images/gallery/g3.webp" alt="High camp" loading="lazy"><span class="m-cap">05 · High camp</span></a>
+        <a href="tours.html" class="marquee-item"><img src="images/tours/huayhuash.webp" alt="Huayhuash" loading="lazy"><span class="m-cap">06 · Huayhuash · 5 000m</span></a>
+        <a href="tours.html" class="marquee-item"><img src="images/tours/cedros-alpamayo.webp" alt="Alpamayo" loading="lazy"><span class="m-cap">07 · Alpamayo · 5 947m</span></a>
+        <!-- duplicate set for seamless loop -->
+        <a href="tours.html" class="marquee-item" aria-hidden="true"><img src="images/gallery/g1.webp" alt="" loading="lazy"><span class="m-cap">01 · Cordillera Blanca</span></a>
+        <a href="tours.html" class="marquee-item" aria-hidden="true"><img src="images/tours/laguna-69.webp" alt="" loading="lazy"><span class="m-cap">02 · Laguna 69 · 4 600m</span></a>
+        <a href="tours.html" class="marquee-item" aria-hidden="true"><img src="images/gallery/g2.webp" alt="" loading="lazy"><span class="m-cap">03 · Punta Unión Pass</span></a>
+        <a href="tours.html" class="marquee-item" aria-hidden="true"><img src="images/tours/santa-cruz.webp" alt="" loading="lazy"><span class="m-cap">04 · Santa Cruz · 4 750m</span></a>
+        <a href="tours.html" class="marquee-item" aria-hidden="true"><img src="images/gallery/g3.webp" alt="" loading="lazy"><span class="m-cap">05 · High camp</span></a>
+        <a href="tours.html" class="marquee-item" aria-hidden="true"><img src="images/tours/huayhuash.webp" alt="" loading="lazy"><span class="m-cap">06 · Huayhuash · 5 000m</span></a>
+        <a href="tours.html" class="marquee-item" aria-hidden="true"><img src="images/tours/cedros-alpamayo.webp" alt="" loading="lazy"><span class="m-cap">07 · Alpamayo · 5 947m</span></a>
       </div>
     </div>
   </section>
