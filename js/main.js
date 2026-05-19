@@ -376,36 +376,6 @@
     });
   }
 
-  // Countdown to next Santa Cruz departure — picks the upcoming Saturday
-  function wireCountdown() {
-    const days = document.getElementById('cdDays');
-    const hrs = document.getElementById('cdHrs');
-    const mins = document.getElementById('cdMin');
-    const secs = document.getElementById('cdSec');
-    if (!days) return;
-    // Next Saturday at 06:00 local
-    const now = new Date();
-    const target = new Date(now);
-    const daysAhead = ((6 - now.getDay()) + 7) % 7 || 7;
-    target.setDate(now.getDate() + daysAhead);
-    target.setHours(6, 0, 0, 0);
-    const pad = n => String(n).padStart(2, '0');
-    const tick = () => {
-      const diff = target - new Date();
-      if (diff <= 0) return;
-      const d = Math.floor(diff / 86400000);
-      const h = Math.floor((diff % 86400000) / 3600000);
-      const m = Math.floor((diff % 3600000) / 60000);
-      const s = Math.floor((diff % 60000) / 1000);
-      days.textContent = pad(d);
-      hrs.textContent  = pad(h);
-      mins.textContent = pad(m);
-      secs.textContent = pad(s);
-    };
-    tick();
-    setInterval(tick, 1000);
-  }
-
   // Scroll-driven route line — draws the path and walks the marker along it
   function wireRouteLine() {
     const svg = document.querySelector('.page-route');
@@ -444,7 +414,6 @@
     wireTilt();
     wireRowGlow();
     wireStatHover();
-    wireCountdown();
     wireRouteLine();
     wireReveal();
   }

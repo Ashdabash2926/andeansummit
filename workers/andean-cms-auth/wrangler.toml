@@ -1,0 +1,7 @@
+name = "andean-cms-auth"
+main = "src/index.js"
+compatibility_date = "2025-05-01"
+
+# Secrets are set via `wrangler secret put` — see README.md
+# OAUTH_CLIENT_ID
+# OAUTH_CLIENT_SECRET

@@ -1,0 +1,9 @@
+[
+  { "src": "images/gallery/g1.webp",            "caption": "Cordillera Blanca", "tourSlug": "" },
+  { "src": "images/tours/laguna-69.webp",       "caption": "Laguna 69 · 4 600m", "tourSlug": "laguna-69" },
+  { "src": "images/gallery/g2.webp",            "caption": "Punta Unión Pass", "tourSlug": "santa-cruz" },
+  { "src": "images/tours/santa-cruz.webp",      "caption": "Santa Cruz · 4 750m", "tourSlug": "santa-cruz" },
+  { "src": "images/gallery/g3.webp",            "caption": "High camp", "tourSlug": "" },
+  { "src": "images/tours/huayhuash.webp",       "caption": "Huayhuash · 5 000m", "tourSlug": "huayhuash" },
+  { "src": "images/tours/cedros-alpamayo.webp", "caption": "Alpamayo · 5 947m", "tourSlug": "alpamayo" }
+]

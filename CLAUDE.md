@@ -11,22 +11,43 @@ Deploy target: **GitHub Pages** on `Ashdabash2926/andeansummit` (push to main = 
 ## File map
 
 ```
-index.html              home (editorial hero, 5 categories, 3 featured tours, why, gallery, CTA)
-tours.html              all 28 expeditions, filterable by category, rendered from js/tours-data.js
-about.html              mission / vision / team (3 split sections)
-history.html            Huaraz / Peru info, tabbed (button toggle, no router)
-accommodation.html      Sleep & Summit lodge
-contact.html            WhatsApp / phone / email / OSM map
-css/styles.css          all styling (custom properties + mobile-first media queries)
-js/translations.js      { en, es, fr, de } dictionary keyed by data-i18n attr
-js/components.js        injects <nav> + <footer> into #nav-mount / #footer-mount on every page
-js/main.js              language toggle, mobile menu, nav scroll state, IntersectionObserver reveals
-js/tours-data.js        single source of truth — 28 tour objects (name, days, altitude, difficulty, image)
-js/tours.js             tours.html filter + render
-images/hero/*.webp      one hero image per page
-images/tours/*.webp     scraped from the live andeansummit.com, compressed via tools/compress-images
-images/gallery/*.webp   gallery strip imagery
+index.html                       home (editorial hero, 5 categories, 3 featured tours, why, gallery, CTA)
+tours.html                       all 28 expeditions, filterable by category, rendered from data/tours.json
+about.html                       mission / vision / team (3 split sections)
+history.html                     Huaraz / Peru info, tabbed (button toggle, no router)
+accommodation.html               Sleep & Summit lodge
+contact.html                     WhatsApp / phone / email / OSM map
+css/styles.css                   all styling (custom properties + mobile-first media queries)
+js/translations.js               { en, es, fr, de } dictionary keyed by data-i18n attr
+js/components.js                 injects <nav> + <footer> into #nav-mount / #footer-mount on every page
+js/main.js                       language toggle, mobile menu, nav scroll state, IntersectionObserver reveals
+js/tours.js                      tours.html filter + render (fetches data/tours.json)
+js/departures.js                 home page "Departing soon" widget (fetches data/departures.json)
+js/gallery.js                    home page marquee (fetches data/gallery.json)
+data/tours.json                  source of truth — 28 tour objects (CMS-editable)
+data/departures.json             upcoming departure schedule (CMS-editable)
+data/gallery.json                gallery image list (CMS-editable)
+admin/index.html                 Decap CMS admin entry point
+admin/config.yml                 Decap CMS collections + GitHub backend config
+images/hero/*.webp               one hero image per page
+images/tours/*.webp              scraped from the live andeansummit.com, compressed via tools/compress-images
+images/gallery/*.webp            gallery strip imagery
+images/uploads/                  Decap CMS uploads land here when client adds new photos
+workers/andean-cms-auth/         Cloudflare Worker — OAuth proxy between Decap + GitHub (deploy with wrangler)
+HANDOFF.md                       client-facing instructions for using the admin
 ```
+
+## Editable content (Decap CMS)
+
+The client can update three things via `/admin/` (Decap CMS, GitHub backend):
+
+- **Departures** — upcoming expedition schedule. Drives the home page countdown widget. `data/departures.json`
+- **Tours** — full catalogue. Drives `tours.html` and home featured tours. `data/tours.json`
+- **Gallery** — home page marquee photos. `data/gallery.json`
+
+All three files are loaded at runtime via `fetch()` with `cache: 'no-store'`. New JSON is live within seconds of a commit (GitHub Pages rebuild).
+
+OAuth proxy lives at `workers/andean-cms-auth/` — see its `README.md` for one-time deploy steps. Update `admin/config.yml`'s `backend.base_url` to the deployed Worker URL.
 
 ## i18n contract
 

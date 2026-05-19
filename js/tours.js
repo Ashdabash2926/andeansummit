@@ -65,7 +65,6 @@
     grid.innerHTML = filtered.map(cardHTML).join('');
     const count = document.getElementById('toursCount');
     if (count) count.textContent = filtered.length;
-    // Re-observe reveal targets
     if (typeof IntersectionObserver !== 'undefined') {
       const io = new IntersectionObserver((entries) => {
         entries.forEach(e => {
@@ -87,8 +86,21 @@
     });
   }
 
-  function init() {
+  async function loadTours() {
+    if (window.TOURS) return;
+    try {
+      const res = await fetch('data/tours.json', { cache: 'no-store' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      window.TOURS = await res.json();
+    } catch (e) {
+      console.error('Failed to load tours.json', e);
+      window.TOURS = [];
+    }
+  }
+
+  async function init() {
     if (!document.getElementById('toursGrid')) return;
+    await loadTours();
     render();
     wireFilters();
     document.addEventListener('lang:changed', render);

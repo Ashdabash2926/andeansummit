@@ -1,0 +1,152 @@
+# Andean Summit — Decap CMS config
+# Client-facing admin lives at /admin/. Logs in with GitHub via the OAuth proxy.
+
+backend:
+  name: github
+  repo: Ashdabash2926/andeansummit
+  branch: main
+  # base_url MUST be set to the deployed Cloudflare Worker OAuth proxy
+  # (see workers/andean-cms-auth/README.md). Update once deployed:
+  base_url: https://andean-cms-auth.ashdabash2926.workers.dev
+  auth_endpoint: auth
+
+# Where uploaded images land in the repo
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+# Live preview of the site after every save
+site_url: https://ashdabash2926.github.io/andeansummit/
+display_url: https://ashdabash2926.github.io/andeansummit/
+
+# Friendlier commit messages in git history
+slug:
+  encoding: "ascii"
+  clean_accents: true
+
+collections:
+  # ============ DEPARTURES (the main thing the client edits) ============
+  - name: "departures"
+    label: "📅 Departures"
+    label_singular: "Departure"
+    description: "Upcoming expedition departures shown on the homepage 'Departing soon' widget."
+    files:
+      - name: "departures"
+        label: "All upcoming departures"
+        file: "data/departures.json"
+        format: "json"
+        fields:
+          - label: "Departures"
+            name: "departures"
+            widget: "list"
+            label_singular: "Departure"
+            summary: "{{fields.tourSlug}} — {{fields.startDate}}"
+            fields:
+              - label: "Tour"
+                name: "tourSlug"
+                widget: "select"
+                hint: "Which expedition is departing?"
+                options:
+                  - { label: "Laguna 69 (1 day · trek)",                value: "laguna-69" }
+                  - { label: "Santa Cruz Trek (4 days · trek)",         value: "santa-cruz" }
+                  - { label: "Huayhuash Circuit (10 days · trek)",      value: "huayhuash" }
+                  - { label: "Cedros–Alpamayo (12 days · trek)",        value: "cedros-alpamayo" }
+                  - { label: "Laguna Churup (1 day · trek)",            value: "laguna-churup" }
+                  - { label: "Olleros–Chavín (3 days · trek)",          value: "olleros-chavin" }
+                  - { label: "Quilcayhuanca–Cojup (3 days · trek)",     value: "quilcayhuanca-cojup" }
+                  - { label: "Nevado Urus (3 days · climb)",            value: "urus" }
+                  - { label: "Nevado Ishinca (4 days · climb)",         value: "ishinca" }
+                  - { label: "Nevado Pisco (4 days · climb)",           value: "pisco" }
+                  - { label: "Nevado Vallunaraju (3 days · climb)",     value: "vallunaraju" }
+                  - { label: "Nevado Tocllaraju (5 days · climb)",      value: "tocllaraju" }
+                  - { label: "Nevado Chopicalqui (6 days · climb)",     value: "chopicalqui" }
+                  - { label: "Nevado Huascarán (6 days · climb)",       value: "huascaran" }
+                  - { label: "Nevado Alpamayo (9 days · climb)",        value: "alpamayo" }
+                  - { label: "Nevado Quitaraju (9 days · climb)",       value: "quitaraju" }
+                  - { label: "Rock climbing day",                        value: "rock-climbing" }
+                  - { label: "Ice climbing day",                         value: "ice-climbing" }
+                  - { label: "Mountain biking",                          value: "mtb" }
+                  - { label: "Canyoning",                                value: "canyoning" }
+                  - { label: "Puenting",                                 value: "puenting" }
+                  - { label: "Horseback riding",                         value: "horseback" }
+                  - { label: "Llanganuco Lakes (tour)",                  value: "llanganuco" }
+                  - { label: "Pastoruri Glacier (tour)",                 value: "pastoruri" }
+                  - { label: "Chavín de Huántar (tour)",                 value: "chavin" }
+                  - { label: "Huaraz city tour",                         value: "city-tour" }
+                  - { label: "Rock climbing course (4 days)",            value: "course-rock" }
+                  - { label: "Ice climbing course (5 days)",             value: "course-ice" }
+              - { label: "Start date", name: "startDate", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", picker_utc: false }
+              - { label: "End date",   name: "endDate",   widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", picker_utc: false, required: false, hint: "Leave blank for single-day departures" }
+              - label: "Status"
+                name: "status"
+                widget: "select"
+                default: "open"
+                options:
+                  - { label: "Open — booking welcome",       value: "open" }
+                  - { label: "Few spots remaining (urgency)", value: "few-spots" }
+                  - { label: "Fully booked (hide)",           value: "full" }
+                  - { label: "Cancelled (hide)",              value: "cancelled" }
+              - { label: "Spots remaining", name: "spotsLeft", widget: "number", value_type: "int", min: 0, max: 20, default: 4 }
+              - { label: "Price (USD)",     name: "priceUSD",  widget: "number", value_type: "int", min: 0, required: false, hint: "Leave blank to use the tour's default price" }
+              - { label: "Notes",           name: "notes",     widget: "string", required: false, hint: "Short note shown beneath the tour name (e.g. 'English guide confirmed')" }
+
+  # ============ TOURS (full catalogue) ============
+  - name: "tours"
+    label: "🏔  Tours"
+    label_singular: "Tour"
+    description: "The full catalogue of treks, climbs, adventures, tours and courses."
+    files:
+      - name: "tours"
+        label: "All tours"
+        file: "data/tours.json"
+        format: "json"
+        fields:
+          - label: "Tours"
+            name: "tours"
+            widget: "list"
+            label_singular: "Tour"
+            summary: "{{fields.nameEN}} — {{fields.category}} · {{fields.days}}d"
+            fields:
+              - { label: "Slug (URL-safe id, e.g. 'laguna-69' — do not change after creation)", name: "slug", widget: "string" }
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "Trekking", value: "trekking" }
+                  - { label: "Climbing", value: "climbing" }
+                  - { label: "Adventure", value: "adventure" }
+                  - { label: "Tour",      value: "tour" }
+                  - { label: "Course",    value: "course" }
+              - { label: "Name (English)",   name: "nameEN",     widget: "string" }
+              - { label: "Summary (English)", name: "summaryEN", widget: "text", hint: "1–2 sentences shown on the tour card." }
+              - { label: "Days",      name: "days",        widget: "number", value_type: "int", min: 1, max: 30 }
+              - { label: "Max altitude (m)", name: "altitudeM", widget: "number", value_type: "int", min: 0, max: 7000 }
+              - label: "Difficulty"
+                name: "difficulty"
+                widget: "select"
+                options:
+                  - { label: "Easy",       value: "easy" }
+                  - { label: "Moderate",   value: "moderate" }
+                  - { label: "Hard",       value: "hard" }
+                  - { label: "All levels", value: "all" }
+              - { label: "Photo", name: "image", widget: "image", media_library: { config: { multiple: false } }, hint: "Used as the tour card photo." }
+
+  # ============ GALLERY (home page marquee) ============
+  - name: "gallery"
+    label: "🖼  Gallery"
+    label_singular: "Gallery image"
+    description: "Photos shown in the home page marquee."
+    files:
+      - name: "gallery"
+        label: "Gallery images"
+        file: "data/gallery.json"
+        format: "json"
+        fields:
+          - label: "Images"
+            name: "gallery"
+            widget: "list"
+            label_singular: "Image"
+            summary: "{{fields.caption}}"
+            fields:
+              - { label: "Photo",     name: "src",      widget: "image" }
+              - { label: "Caption",   name: "caption",  widget: "string", hint: "Short caption shown over the photo." }
+              - { label: "Linked tour (optional)", name: "tourSlug", widget: "string", required: false, hint: "Slug of the tour this photo is from (laguna-69, santa-cruz, etc). Leave blank if generic." }
