@@ -295,6 +295,87 @@
     });
   }
 
+  // Magnetic effect on primary CTAs — button drifts towards cursor
+  function wireMagnetic() {
+    if (!window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)').matches) return;
+    document.querySelectorAll('[data-magnet], .btn-primary').forEach(btn => {
+      const strength = 18; // px
+      btn.style.transition = 'transform .4s cubic-bezier(.2,.7,.2,1)';
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        const cx = r.left + r.width / 2;
+        const cy = r.top + r.height / 2;
+        const dx = (e.clientX - cx) / (r.width / 2);
+        const dy = (e.clientY - cy) / (r.height / 2);
+        btn.style.transform = `translate(${dx * strength}px, ${dy * strength}px)`;
+        btn.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+        btn.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0, 0)';
+      });
+    });
+  }
+
+  // 3D tilt on featured tour cards based on mouse position
+  function wireTilt() {
+    if (!window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)').matches) return;
+    document.querySelectorAll('.section--glacier .tour-card').forEach(card => {
+      const max = 8;  // degrees
+      card.style.transformStyle = 'preserve-3d';
+      card.style.transition = 'transform .25s ease-out';
+      const media = card.querySelector('.tour-media');
+      const body = card.querySelector('.tour-body');
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top)  / r.height - 0.5;
+        card.style.transform = `perspective(900px) rotateY(${px * max}deg) rotateX(${-py * max}deg) translateZ(0)`;
+        if (media) media.style.transform = `translateZ(40px)`;
+        if (body)  body.style.transform  = `translateZ(20px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(900px) rotateY(0) rotateX(0)';
+        if (media) media.style.transform = '';
+        if (body)  body.style.transform  = '';
+      });
+    });
+  }
+
+  // Animated alpine-orange underline that tracks mouse position on category rows
+  function wireRowGlow() {
+    if (!window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)').matches) return;
+    document.querySelectorAll('.cat-row').forEach(row => {
+      const glow = document.createElement('span');
+      glow.className = 'row-glow';
+      row.appendChild(glow);
+      row.addEventListener('mousemove', (e) => {
+        const r = row.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        glow.style.left = x + 'px';
+        glow.style.opacity = '1';
+      });
+      row.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+    });
+  }
+
+  // Stat hover reveals an extra context line
+  function wireStatHover() {
+    const stats = document.querySelectorAll('.stat');
+    const EXTRA = [
+      'Operating since 2012 · prior decade in tourism',
+      'Across 5 disciplines · trek / climb / adventure / tour / course',
+      "Huascarán Sur — the world's highest tropical mountain",
+      'EN · ES · FR · DE — guides fluent across the team'
+    ];
+    stats.forEach((s, i) => {
+      const extra = document.createElement('span');
+      extra.className = 'stat-extra';
+      extra.textContent = EXTRA[i] || '';
+      s.appendChild(extra);
+    });
+  }
+
   function init() {
     applyLang(detectLang());
     wireHeroReveal();
@@ -307,6 +388,10 @@
     wireScrollProgress();
     wireElevTrack();
     wireCursor();
+    wireMagnetic();
+    wireTilt();
+    wireRowGlow();
+    wireStatHover();
     wireReveal();
   }
 

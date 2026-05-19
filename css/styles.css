@@ -894,6 +894,61 @@ a { color: inherit; }
 }
 .cursor.is-hover .cursor-dot { width: 6px; height: 6px; }
 
+/* ---------- Iteration 2: magnetic + tilt + glow ---------- */
+
+/* Category row mouse-tracking glow underline */
+.cat-row { position: relative; }
+.row-glow {
+  position: absolute;
+  bottom: -1px; left: 50%;
+  width: 90px; height: 2px;
+  background: radial-gradient(ellipse at center, var(--alpine) 0%, transparent 70%);
+  transform: translateX(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+  filter: blur(.5px);
+}
+
+/* Featured tour cards — 3D tilt context */
+.section--glacier .tour-card { perspective: 900px; will-change: transform; }
+.section--glacier .tour-media,
+.section--glacier .tour-body { transition: transform .35s ease-out; will-change: transform; }
+
+/* Stat hover-reveal */
+.stat { cursor: pointer; }
+.stat-extra {
+  display: block;
+  margin-top: .5rem;
+  font-family: 'Inter', sans-serif;
+  font-size: .72rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  font-style: italic;
+  max-width: 22ch;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .35s ease, transform .35s ease;
+  text-transform: none;
+  letter-spacing: 0;
+  pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .stat:hover .stat-extra { opacity: 1; transform: translateY(0); }
+}
+
+/* Magnetic button polish — keep transform smooth */
+.btn-primary { position: relative; overflow: hidden; }
+.btn-primary::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,.25) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
+.btn-primary:hover::before { opacity: 1; }
+
 /* Cinematic letterbox bars — retract on load */
 .hero-bar {
   position: absolute; left: 0; right: 0;
