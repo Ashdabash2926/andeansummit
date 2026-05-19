@@ -735,6 +735,165 @@ a { color: inherit; }
     linear-gradient(180deg, rgba(15,20,17,.55) 0%, rgba(15,20,17,.05) 18%, rgba(15,20,17,.05) 55%, rgba(15,20,17,.78) 100%) !important;
 }
 
+/* Crossfading slideshow */
+.hero-slideshow {
+  position: absolute; inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+.hero-slide {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 2.2s cubic-bezier(.45,0,.2,1);
+  animation: heroDrift 22s ease-in-out infinite alternate;
+  will-change: opacity, transform;
+}
+.hero-slide.is-active { opacity: 1; }
+@keyframes heroDrift {
+  from { transform: scale(1.06) translate(0, 0); }
+  to   { transform: scale(1.12) translate(-1.4%, -1.2%); }
+}
+
+/* Atmospheric drifting particles (dust / light snow) */
+.hero-particles {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+.hero-particles span {
+  position: absolute;
+  display: block;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: rgba(251,247,239,.55);
+  filter: blur(.4px);
+  opacity: 0;
+  bottom: -20px;
+  animation: drift 14s linear infinite;
+}
+@keyframes drift {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  10%  { opacity: .6; }
+  100% { transform: translate(-80px, -110vh) rotate(180deg); opacity: 0; }
+}
+.hero-particles span:nth-child(1)  { left: 4%;  width: 3px; height: 3px; animation-duration: 16s; animation-delay: 0s; }
+.hero-particles span:nth-child(2)  { left: 12%; width: 2px; height: 2px; animation-duration: 11s; animation-delay: 2s; }
+.hero-particles span:nth-child(3)  { left: 18%; width: 5px; height: 5px; animation-duration: 18s; animation-delay: 4s; }
+.hero-particles span:nth-child(4)  { left: 24%; width: 2px; height: 2px; animation-duration: 13s; animation-delay: 1s; }
+.hero-particles span:nth-child(5)  { left: 33%; width: 4px; height: 4px; animation-duration: 15s; animation-delay: 6s; }
+.hero-particles span:nth-child(6)  { left: 41%; width: 3px; height: 3px; animation-duration: 12s; animation-delay: 3s; }
+.hero-particles span:nth-child(7)  { left: 48%; width: 2px; height: 2px; animation-duration: 19s; animation-delay: 5s; }
+.hero-particles span:nth-child(8)  { left: 55%; width: 5px; height: 5px; animation-duration: 14s; animation-delay: 0s; }
+.hero-particles span:nth-child(9)  { left: 62%; width: 3px; height: 3px; animation-duration: 17s; animation-delay: 7s; }
+.hero-particles span:nth-child(10) { left: 70%; width: 2px; height: 2px; animation-duration: 13s; animation-delay: 2s; }
+.hero-particles span:nth-child(11) { left: 77%; width: 4px; height: 4px; animation-duration: 16s; animation-delay: 8s; }
+.hero-particles span:nth-child(12) { left: 84%; width: 3px; height: 3px; animation-duration: 12s; animation-delay: 4s; }
+.hero-particles span:nth-child(13) { left: 91%; width: 2px; height: 2px; animation-duration: 18s; animation-delay: 1s; }
+.hero-particles span:nth-child(14) { left: 8%;  width: 2px; height: 2px; animation-duration: 14s; animation-delay: 9s; }
+.hero-particles span:nth-child(15) { left: 28%; width: 3px; height: 3px; animation-duration: 17s; animation-delay: 6s; }
+.hero-particles span:nth-child(16) { left: 50%; width: 2px; height: 2px; animation-duration: 13s; animation-delay: 10s; }
+.hero-particles span:nth-child(17) { left: 68%; width: 4px; height: 4px; animation-duration: 15s; animation-delay: 3s; }
+.hero-particles span:nth-child(18) { left: 88%; width: 3px; height: 3px; animation-duration: 19s; animation-delay: 7s; }
+
+/* ---------- Scroll progress bar (sticky to top) ---------- */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: rgba(15,20,17,.08);
+  z-index: 100;
+  pointer-events: none;
+}
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--alpine) 0%, var(--alpine-dark) 100%);
+  box-shadow: 0 0 12px var(--alpine);
+  transition: width .15s linear;
+}
+
+/* ---------- Sticky elevation tracker (right side) ---------- */
+.elev-track {
+  position: fixed;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: none;
+  flex-direction: column;
+  gap: .2rem;
+  align-items: flex-end;
+  padding: .85rem 1rem;
+  background: rgba(251,247,239,.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--line);
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--ink);
+  opacity: 0;
+  transition: opacity .4s ease;
+  pointer-events: none;
+}
+@media (min-width: 1024px) { .elev-track { display: flex; right: 1.5rem; } }
+.elev-track.is-visible { opacity: 1; }
+.elev-track-label {
+  font-size: .58rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.elev-track-val {
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--forest-dark);
+  font-variation-settings: 'opsz' 144;
+}
+.elev-track-unit { font-size: .55em; opacity: .55; margin-left: .15em; }
+.elev-track-loc {
+  font-size: .58rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--alpine);
+}
+
+/* ---------- Custom cursor (desktop, hover-capable) ---------- */
+.cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 32px; height: 32px;
+  border: 1px solid var(--alpine);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+  transition: width .25s ease, height .25s ease, border-color .25s ease, background .25s ease, opacity .25s ease;
+  mix-blend-mode: difference;
+  display: none;
+  opacity: 0;
+}
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+  .cursor { display: block; }
+}
+.cursor.is-on { opacity: 1; }
+.cursor-dot {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 4px; height: 4px;
+  background: var(--alpine);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.cursor.is-hover {
+  width: 60px; height: 60px;
+  background: rgba(232,111,44,.15);
+  border-color: var(--alpine);
+}
+.cursor.is-hover .cursor-dot { width: 6px; height: 6px; }
+
 /* Cinematic letterbox bars — retract on load */
 .hero-bar {
   position: absolute; left: 0; right: 0;

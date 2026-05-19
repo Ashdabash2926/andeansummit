@@ -24,11 +24,37 @@
   <!-- Page-wide grain overlay -->
   <div class="grain" aria-hidden="true"></div>
 
+  <!-- Custom cursor (desktop only) -->
+  <div class="cursor" aria-hidden="true"><div class="cursor-dot"></div></div>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-bar"></div></div>
+
+  <!-- Sticky elevation tracker (mirrors scroll progress as altitude reading) -->
+  <div class="elev-track" aria-hidden="true">
+    <span class="elev-track-label">You are at</span>
+    <span class="elev-track-val"><span id="elevVal">3 100</span><span class="elev-track-unit">m</span></span>
+    <span class="elev-track-loc" id="elevLoc">Base · Huaraz</span>
+  </div>
+
   <div id="nav-mount"></div>
 
   <!-- ============ HERO ============ -->
   <header class="hero" data-hero>
-    <div class="hero-bg" style="background-image:url('images/hero/home-hero.webp');" role="img" aria-label="Cordillera Blanca peaks"></div>
+    <!-- Photo slideshow — multiple layers crossfading -->
+    <div class="hero-slideshow" role="img" aria-label="Cordillera Blanca peaks">
+      <div class="hero-slide is-active" style="background-image:url('images/hero/home-hero.webp');"></div>
+      <div class="hero-slide" style="background-image:url('images/hero/tours-hero.webp');"></div>
+      <div class="hero-slide" style="background-image:url('images/hero/about-hero.webp');"></div>
+      <div class="hero-slide" style="background-image:url('images/hero/history-hero.webp');"></div>
+    </div>
+
+    <!-- Atmospheric drifting particles -->
+    <div class="hero-particles" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
 
     <!-- Cinematic letterbox bars that retract on load -->
     <div class="hero-bar hero-bar--top" aria-hidden="true"></div>

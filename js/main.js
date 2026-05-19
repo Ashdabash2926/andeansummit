@@ -207,6 +207,94 @@
     el.textContent = fmt.format(new Date()).toUpperCase();
   }
 
+  function wireSlideshow() {
+    const slides = document.querySelectorAll('.hero-slideshow .hero-slide');
+    if (slides.length < 2) return;
+    let i = 0;
+    setInterval(() => {
+      slides[i].classList.remove('is-active');
+      i = (i + 1) % slides.length;
+      slides[i].classList.add('is-active');
+    }, 5500);
+  }
+
+  function wireScrollProgress() {
+    const bar = document.querySelector('.scroll-progress-bar');
+    if (!bar) return;
+    const update = () => {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+      bar.style.width = pct + '%';
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+  }
+
+  // Map scroll percentage to a faux elevation reading 3100 → 6768
+  function wireElevTrack() {
+    const track = document.querySelector('.elev-track');
+    const val = document.getElementById('elevVal');
+    const loc = document.getElementById('elevLoc');
+    if (!track || !val) return;
+    const BASE = 3100;
+    const SUMMIT = 6768;
+    const ZONES = [
+      { p: 0,    name: 'Base · Huaraz' },
+      { p: .15,  name: 'Cebollapampa' },
+      { p: .30,  name: 'Camp 1 · Refugio' },
+      { p: .45,  name: 'Llanganuco' },
+      { p: .60,  name: 'Camp 2' },
+      { p: .75,  name: 'High camp' },
+      { p: .90,  name: 'Summit ridge' },
+      { p: 1,    name: 'Huascarán summit' }
+    ];
+    const format = (n) => Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    const update = () => {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      const elev = BASE + (SUMMIT - BASE) * pct;
+      val.textContent = format(elev);
+      // Show only after scrolling past the hero
+      track.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.6);
+      // Pick zone label
+      let zone = ZONES[0];
+      for (const z of ZONES) { if (pct >= z.p) zone = z; }
+      if (loc.textContent !== zone.name) loc.textContent = zone.name;
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+  }
+
+  function wireCursor() {
+    if (!window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)').matches) return;
+    const cursor = document.querySelector('.cursor');
+    if (!cursor) return;
+    let x = 0, y = 0, tx = 0, ty = 0;
+    document.addEventListener('mousemove', (e) => {
+      tx = e.clientX; ty = e.clientY;
+      cursor.classList.add('is-on');
+    });
+    document.addEventListener('mouseleave', () => cursor.classList.remove('is-on'));
+    const tick = () => {
+      x += (tx - x) * 0.22;
+      y += (ty - y) * 0.22;
+      cursor.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    const HOVER_SELECTOR = 'a, button, .tour-card, .cat-row, .stat, .marquee-item';
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest(HOVER_SELECTOR)) cursor.classList.add('is-hover');
+    });
+    document.addEventListener('mouseout', (e) => {
+      if (e.target.closest(HOVER_SELECTOR)) cursor.classList.remove('is-hover');
+    });
+  }
+
   function init() {
     applyLang(detectLang());
     wireHeroReveal();
@@ -215,6 +303,10 @@
     wireMobileMenu();
     wireNavScroll();
     wireCounters();
+    wireSlideshow();
+    wireScrollProgress();
+    wireElevTrack();
+    wireCursor();
     wireReveal();
   }
 
