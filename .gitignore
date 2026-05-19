@@ -4,3 +4,4 @@ images/_raw/
 images/_compressed/
 *.log
 .vscode/
+.wrangler/
