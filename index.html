@@ -127,6 +127,14 @@
     <div class="hero-scroll" data-i18n="home.hero.scroll">Scroll</div>
   </header>
 
+  <!-- ============ INFINITE TICKER BAND ============ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>· Cordillera Blanca</span><span>· Huayhuash</span><span>· Cordillera Negra</span><span>· Huascarán 6 768m</span><span>· Alpamayo 5 947m</span><span>· Punta Unión 4 750m</span><span>· Laguna 69</span><span>· Santa Cruz</span><span>· Chavín de Huántar</span><span>· Pastoruri</span>
+      <span>· Cordillera Blanca</span><span>· Huayhuash</span><span>· Cordillera Negra</span><span>· Huascarán 6 768m</span><span>· Alpamayo 5 947m</span><span>· Punta Unión 4 750m</span><span>· Laguna 69</span><span>· Santa Cruz</span><span>· Chavín de Huántar</span><span>· Pastoruri</span>
+    </div>
+  </div>
+
   <!-- ============ STATS BAR ============ -->
   <section class="stats-band">
     <div class="container">
@@ -323,6 +331,44 @@
     </div>
   </section>
 
+  <!-- ============ SIGNATURE WORDMARK MOMENT ============ -->
+  <section class="wordmark-section" aria-hidden="false">
+    <div class="wm-bg" style="background-image:url('images/hero/history-hero.webp');"></div>
+    <div class="wm-overlay"></div>
+    <div class="wm-content">
+      <span class="wm-coord">09° 07′ S · 77° 36′ W</span>
+      <h2 class="wm-title font-display"><em>Huascarán</em></h2>
+      <div class="wm-meta">
+        <span><strong>6 768</strong><sup>m</sup></span>
+        <span class="sep">/</span>
+        <span>Peru's highest tropical mountain</span>
+        <span class="sep">/</span>
+        <span>summited via the standard route in 6 days</span>
+      </div>
+      <a href="tours.html#huascaran" class="wm-cta">Climb it with us →</a>
+    </div>
+  </section>
+
+  <!-- ============ NEXT DEPARTURE TICKER ============ -->
+  <section class="departure">
+    <div class="container departure-inner">
+      <div class="dep-left">
+        <span class="dep-status"><span class="dep-dot"></span>Departing soon</span>
+        <h3 class="dep-title font-display">Santa Cruz Trek</h3>
+        <span class="dep-meta">4 days · 4 750m max · Moderate · 2 spots remaining</span>
+      </div>
+      <div class="dep-right">
+        <div class="dep-countdown" id="depCountdown">
+          <div><span class="cd-num" id="cdDays">00</span><span class="cd-label">days</span></div>
+          <div><span class="cd-num" id="cdHrs">00</span><span class="cd-label">hrs</span></div>
+          <div><span class="cd-num" id="cdMin">00</span><span class="cd-label">min</span></div>
+          <div><span class="cd-num" id="cdSec">00</span><span class="cd-label">sec</span></div>
+        </div>
+        <a href="https://wa.me/51990221361?text=Hola%20Andean%20Summit%2C%20quiero%20unirme%20al%20pr%C3%B3ximo%20Santa%20Cruz." target="_blank" rel="noopener" class="btn btn-primary dep-cta" data-magnet>Reserve a spot →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ GALLERY MARQUEE ============ -->
   <section class="section section--tight">
     <div class="container">
@@ -367,6 +413,16 @@
       </div>
     </div>
   </section>
+
+  <!-- Page-edge scroll route line — fixed SVG that draws as you scroll -->
+  <svg class="page-route" viewBox="0 0 60 1000" preserveAspectRatio="none" aria-hidden="true">
+    <path id="routePath" d="M30 0 Q15 120 30 240 T45 480 T20 720 T30 1000"
+          fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+    <g id="routeMarker">
+      <circle r="6" fill="var(--alpine)"/>
+      <circle r="11" fill="none" stroke="var(--alpine)" stroke-opacity=".4" stroke-width="1"/>
+    </g>
+  </svg>
 
   <div id="footer-mount"></div>
 
